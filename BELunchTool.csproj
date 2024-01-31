@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="BEToolsClassLibrary">
+      <HintPath>..\BonfiglioliInternalTools\CommonLibsAndObjects\DLL\BEToolsClassLibrary\bin\Debug\BEToolsClassLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonWinForms">
+      <HintPath>..\BonfiglioliInternalTools\CommonLibsAndObjects\DLL\CommonWinForms\bin\Debug\net6.0-windows\CommonWinForms.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
