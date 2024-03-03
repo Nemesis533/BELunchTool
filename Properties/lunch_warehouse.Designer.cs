@@ -146,6 +146,7 @@
             mark_paid.TabIndex = 11;
             mark_paid.Text = "Close Monthly Bill";
             mark_paid.UseVisualStyleBackColor = true;
+            mark_paid.Click += mark_paid_Click;
             // 
             // user_purchases
             // 

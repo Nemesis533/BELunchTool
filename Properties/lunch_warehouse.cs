@@ -33,6 +33,7 @@ namespace BELunchTool.Properties
         lunch_option current_option = new lunch_option();
         lunch_type current_type = new lunch_type();
         List<lunch_option> list_of_purchased_items = new List<lunch_option>();
+        List< user_purchase_obj> user_purchase_obj_list = new List<user_purchase_obj>();    
         main_form main_Form = new main_form();
 
         private void InitLunchLists()
@@ -246,5 +247,18 @@ namespace BELunchTool.Properties
             user_open.Text = main_Form.get_sum_from_list(list_of_purchased_items).ToString() + " Euro";
         }
 
+        private void mark_paid_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show($"Do you want to  close all open purchases for user {user_name.SelectedItem} for this month? ", "Confirm", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                foreach( user_purchase_obj purchase in user_purchase_obj_list)
+                {
+                    purchase.P_status = 1;
+                    SQL_Queries.UpdateOrWriteSingleLine(purchase, current_user, false);
+                }
+            }
+            MessageBox.Show($"Completed, all purchses for user {user_name.SelectedItem} have been marked as closed ", "Done!", MessageBoxButtons.OK);
+        }
     }
 }

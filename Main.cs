@@ -122,8 +122,16 @@ namespace BELunchTool
                     basket.Items.Add((ListViewItem)item.Clone());
                     lunch_option selected_meal = new lunch_option();
                     selected_meal = Common_Functions_WinfForm.ReturnObjFromListByName(list_of_lunches, selected_meal.P_MyIdString, lunch_list.SelectedItems[0].SubItems[0].Text);
-                    list_of_selected_items.Add(selected_meal);
-                    basket_total.Text = get_sum_from_list(list_of_selected_items).ToString() + " Euro";
+                    if(selected_meal.P_lunch_stock_qty != 0)
+                    {
+                        list_of_selected_items.Add(selected_meal);
+                        basket_total.Text = get_sum_from_list(list_of_selected_items).ToString() + " Euro";
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Il piatto {lunch_list.SelectedItems[0]} non e' disponibile", "Impossibile Procedere", MessageBoxButtons.YesNo);
+                    }
+
                 }
             }
         }
@@ -158,6 +166,7 @@ namespace BELunchTool
 
         }
 
+
         private void add_to_basket_Click(object sender, EventArgs e)
         {
             //the add to basket actuall checks out what you purchased - it will populate the correct object and then write to DB after user confirmatinon
@@ -180,6 +189,8 @@ namespace BELunchTool
                             user_Purchase_Obj.P_date = DateTime.Now;
                             user_Purchase_Obj.P_status = 0;
                             SQL_Queries.UpdateOrWriteSingleLine(user_Purchase_Obj, current_user, false );
+                            //when an item is purchsed, its quntity is reduced by 1
+                            lunch.P_lunch_stock_qty = lunch.P_lunch_stock_qty - 1;
 
                         }
                         MessageBox.Show("Acquisto effettuato con successo!", "Buon Pranzo!", MessageBoxButtons.OK);
