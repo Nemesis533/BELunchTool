@@ -15,6 +15,7 @@ using BEToolsClassLibrary;
 using CommonWinForms.CommonForms;
 using BELunchTool;
 
+
 namespace BELunchTool.Properties
 {
     public partial class lunch_warehouse : Form
@@ -26,6 +27,7 @@ namespace BELunchTool.Properties
             this.lunch_name.DropDown += new System.EventHandler(this.lunch_name_DropDown);
             this.lunch_type_desc.DropDown += new System.EventHandler(this.lunch_type_desc_DropDown);
             InitLunchLists();
+            populate_lunch_view_list();
 
         }
         public User_Object current_user = new User_Object();
@@ -80,6 +82,19 @@ namespace BELunchTool.Properties
 
             }
 
+        }
+
+        private void populate_lunch_view_list()
+        {
+            lunch_option lunch_option_item = new lunch_option();
+            DataTable dataTable = new DataTable();
+            dataTable = SQL_Queries.GetValues(current_user.P_Conn_Handler, lunch_option_item.P_MyTable, lunch_option_item.P_MyNameString, DistinctOrGeneral.General);
+            lunch_options_view.Items.Clear();
+            foreach (DataRow row in dataTable.Rows)
+            {
+                ListViewItem item = new ListViewItem(new[] { lunch_option_item.P_lunch_name, lunch_option_item.P_lunch_desc, lunch_option_item.P_lunch_cost.ToString(), lunch_option_item.P_lunch_price.ToString(), lunch_option_item.P_lunch_stock_qty.ToString(), lunch_option_item.P_lunch_be_code, lunch_option_item.P_lunch_supplier_code } ) ;
+                lunch_options_view.Items.Add(item);
+            }
         }
 
 
@@ -176,6 +191,7 @@ namespace BELunchTool.Properties
                 if (save_or_update_data())
                 {
                     Common_Functions_WinfForm.DisplayMessage($"Data successfully saved for meal {lunch_name.Text}", "Data Saved", ButtonTypesEnum.OkOnly);
+                    populate_lunch_view_list();
                 }
             }
         }
