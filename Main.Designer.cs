@@ -28,93 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(main_form));
             label1 = new Label();
-            first_courses = new Button();
-            second_courses = new Button();
-            desserts = new Button();
-            drinks = new Button();
-            show_all = new Button();
             add = new Button();
             remove = new Button();
             add_to_basket = new Button();
             label4 = new Label();
             label2 = new Label();
-            label3 = new Label();
+            basket_total = new Label();
             label5 = new Label();
             see_history = new Button();
-            label6 = new Label();
+            purchases_total = new Label();
             label7 = new Label();
-            label8 = new Label();
             lunch_list = new ListView();
             basket = new ListView();
             purchases = new ListView();
             button1 = new Button();
+            label9 = new Label();
+            version = new Label();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(146, 28);
+            label1.Location = new Point(12, 28);
             label1.Name = "label1";
             label1.Size = new Size(78, 37);
             label1.TabIndex = 1;
             label1.Text = "Piatti";
-            // 
-            // first_courses
-            // 
-            first_courses.BackgroundImage = Properties.Resources.spaghetti;
-            first_courses.BackgroundImageLayout = ImageLayout.Zoom;
-            first_courses.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            first_courses.Location = new Point(12, 271);
-            first_courses.Name = "first_courses";
-            first_courses.Size = new Size(128, 128);
-            first_courses.TabIndex = 2;
-            first_courses.UseVisualStyleBackColor = true;
-            // 
-            // second_courses
-            // 
-            second_courses.BackgroundImage = Properties.Resources.meat;
-            second_courses.BackgroundImageLayout = ImageLayout.Zoom;
-            second_courses.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            second_courses.Location = new Point(12, 405);
-            second_courses.Name = "second_courses";
-            second_courses.Size = new Size(128, 128);
-            second_courses.TabIndex = 7;
-            second_courses.UseVisualStyleBackColor = true;
-            // 
-            // desserts
-            // 
-            desserts.BackgroundImage = Properties.Resources.dessert;
-            desserts.BackgroundImageLayout = ImageLayout.Zoom;
-            desserts.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            desserts.Location = new Point(12, 539);
-            desserts.Name = "desserts";
-            desserts.Size = new Size(128, 128);
-            desserts.TabIndex = 8;
-            desserts.UseVisualStyleBackColor = true;
-            // 
-            // drinks
-            // 
-            drinks.BackgroundImage = Properties.Resources.drink;
-            drinks.BackgroundImageLayout = ImageLayout.Zoom;
-            drinks.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            drinks.Location = new Point(12, 673);
-            drinks.Name = "drinks";
-            drinks.Size = new Size(128, 128);
-            drinks.TabIndex = 9;
-            drinks.UseVisualStyleBackColor = true;
-            // 
-            // show_all
-            // 
-            show_all.BackColor = Color.LightCyan;
-            show_all.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            show_all.Location = new Point(12, 68);
-            show_all.Name = "show_all";
-            show_all.Size = new Size(128, 128);
-            show_all.TabIndex = 10;
-            show_all.Text = "Mostra Tutto";
-            show_all.UseVisualStyleBackColor = false;
             // 
             // add
             // 
@@ -126,6 +68,7 @@
             add.Size = new Size(128, 128);
             add.TabIndex = 12;
             add.UseVisualStyleBackColor = true;
+            add.Click += add_Click;
             // 
             // remove
             // 
@@ -137,6 +80,7 @@
             remove.Size = new Size(128, 128);
             remove.TabIndex = 13;
             remove.UseVisualStyleBackColor = true;
+            remove.Click += remove_Click;
             // 
             // add_to_basket
             // 
@@ -148,6 +92,7 @@
             add_to_basket.Size = new Size(128, 128);
             add_to_basket.TabIndex = 14;
             add_to_basket.UseVisualStyleBackColor = true;
+            add_to_basket.Click += add_to_basket_Click;
             // 
             // label4
             // 
@@ -169,15 +114,15 @@
             label2.TabIndex = 16;
             label2.Text = "Totale:";
             // 
-            // label3
+            // basket_total
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(1180, 483);
-            label3.Name = "label3";
-            label3.Size = new Size(94, 37);
-            label3.TabIndex = 17;
-            label3.Text = "Totale:";
+            basket_total.AutoSize = true;
+            basket_total.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            basket_total.Location = new Point(1278, 483);
+            basket_total.Name = "basket_total";
+            basket_total.Size = new Size(28, 37);
+            basket_total.TabIndex = 17;
+            basket_total.Text = "/";
             // 
             // label5
             // 
@@ -185,13 +130,13 @@
             label5.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             label5.Location = new Point(1092, 574);
             label5.Name = "label5";
-            label5.Size = new Size(284, 37);
+            label5.Size = new Size(170, 37);
             label5.TabIndex = 19;
-            label5.Text = "Vedi Acquisti del Mese";
+            label5.Text = "Ordini Aperti";
             // 
             // see_history
             // 
-            see_history.BackgroundImage = Properties.Resources.JobReport;
+            see_history.BackgroundImage = Properties.Resources.LoginIcon1;
             see_history.BackgroundImageLayout = ImageLayout.Zoom;
             see_history.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
             see_history.Location = new Point(1764, 902);
@@ -200,16 +145,17 @@
             see_history.TabIndex = 20;
             see_history.Text = "Accedi";
             see_history.UseVisualStyleBackColor = true;
+            see_history.Click += see_history_Click;
             // 
-            // label6
+            // purchases_total
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(1180, 899);
-            label6.Name = "label6";
-            label6.Size = new Size(94, 37);
-            label6.TabIndex = 22;
-            label6.Text = "Totale:";
+            purchases_total.AutoSize = true;
+            purchases_total.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            purchases_total.Location = new Point(1278, 899);
+            purchases_total.Name = "purchases_total";
+            purchases_total.Size = new Size(28, 37);
+            purchases_total.TabIndex = 22;
+            purchases_total.Text = "/";
             // 
             // label7
             // 
@@ -221,27 +167,25 @@
             label7.TabIndex = 21;
             label7.Text = "Totale:";
             // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(39, 231);
-            label8.Name = "label8";
-            label8.Size = new Size(76, 37);
-            label8.TabIndex = 23;
-            label8.Text = "Filtra";
-            // 
             // lunch_list
             // 
-            lunch_list.Location = new Point(146, 68);
+            lunch_list.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            lunch_list.FullRowSelect = true;
+            lunch_list.HeaderStyle = ColumnHeaderStyle.Nonclickable;
+            lunch_list.Location = new Point(12, 68);
+            lunch_list.MultiSelect = false;
             lunch_list.Name = "lunch_list";
-            lunch_list.Size = new Size(800, 961);
+            lunch_list.Size = new Size(934, 928);
             lunch_list.TabIndex = 24;
             lunch_list.UseCompatibleStateImageBehavior = false;
+            lunch_list.SelectedIndexChanged += lunch_list_SelectedIndexChanged;
             // 
             // basket
             // 
+            basket.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            basket.FullRowSelect = true;
             basket.Location = new Point(1092, 69);
+            basket.MultiSelect = false;
             basket.Name = "basket";
             basket.Size = new Size(800, 408);
             basket.TabIndex = 25;
@@ -249,7 +193,10 @@
             // 
             // purchases
             // 
+            purchases.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            purchases.FullRowSelect = true;
             purchases.Location = new Point(1092, 617);
+            purchases.MultiSelect = false;
             purchases.Name = "purchases";
             purchases.Size = new Size(800, 274);
             purchases.TabIndex = 26;
@@ -260,12 +207,33 @@
             button1.BackgroundImage = Properties.Resources.note_s;
             button1.BackgroundImageLayout = ImageLayout.Zoom;
             button1.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(952, 902);
+            button1.Location = new Point(952, 868);
             button1.Name = "button1";
             button1.Size = new Size(128, 128);
             button1.TabIndex = 27;
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label9.Location = new Point(12, 1017);
+            label9.Name = "label9";
+            label9.Size = new Size(54, 15);
+            label9.TabIndex = 29;
+            label9.Text = "Versione:";
+            label9.Click += label9_Click;
+            // 
+            // version
+            // 
+            version.AutoSize = true;
+            version.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            version.Location = new Point(64, 1017);
+            version.Name = "version";
+            version.Size = new Size(51, 15);
+            version.TabIndex = 30;
+            version.Text = "Versione";
             // 
             // main_form
             // 
@@ -273,28 +241,26 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1904, 1041);
+            Controls.Add(version);
+            Controls.Add(label9);
             Controls.Add(button1);
             Controls.Add(purchases);
             Controls.Add(basket);
             Controls.Add(lunch_list);
-            Controls.Add(label8);
-            Controls.Add(label6);
+            Controls.Add(purchases_total);
             Controls.Add(label7);
             Controls.Add(see_history);
             Controls.Add(label5);
-            Controls.Add(label3);
+            Controls.Add(basket_total);
             Controls.Add(label2);
             Controls.Add(label4);
             Controls.Add(add_to_basket);
             Controls.Add(remove);
             Controls.Add(add);
-            Controls.Add(show_all);
-            Controls.Add(drinks);
-            Controls.Add(desserts);
-            Controls.Add(second_courses);
-            Controls.Add(first_courses);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "main_form";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             Load += main_form_Load;
             ResumeLayout(false);
@@ -303,25 +269,21 @@
 
         #endregion
         private Label label1;
-        private Button first_courses;
-        private Button second_courses;
-        private Button desserts;
-        private Button drinks;
-        private Button show_all;
         private Button add;
         private Button remove;
         private Button add_to_basket;
         private Label label4;
         private Label label2;
-        private Label label3;
+        private Label basket_total;
         private Label label5;
         private Button see_history;
-        private Label label6;
+        private Label purchases_total;
         private Label label7;
-        private Label label8;
         private ListView lunch_list;
         private ListView basket;
         private ListView purchases;
         private Button button1;
+        private Label label9;
+        private Label version;
     }
 }

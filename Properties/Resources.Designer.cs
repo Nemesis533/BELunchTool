@@ -103,6 +103,16 @@ namespace BELunchTool.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BE_Logo_Single_RGB_jpg {
+            get {
+                object obj = ResourceManager.GetObject("BE Logo_Single_RGB_jpg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BlueButton_v2 {
             get {
                 object obj = ResourceManager.GetObject("BlueButton v2", resourceCulture);
@@ -153,6 +163,16 @@ namespace BELunchTool.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap IMG_0913 {
+            get {
+                object obj = ResourceManager.GetObject("IMG_0913", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap JobReport {
             get {
                 object obj = ResourceManager.GetObject("JobReport", resourceCulture);
@@ -173,6 +193,16 @@ namespace BELunchTool.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LoginIcon1 {
+            get {
+                object obj = ResourceManager.GetObject("LoginIcon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap meat {
             get {
                 object obj = ResourceManager.GetObject("meat", resourceCulture);
@@ -186,6 +216,16 @@ namespace BELunchTool.Properties {
         internal static System.Drawing.Bitmap note_s {
             get {
                 object obj = ResourceManager.GetObject("note_s", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap reset_filter {
+            get {
+                object obj = ResourceManager.GetObject("reset_filter", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

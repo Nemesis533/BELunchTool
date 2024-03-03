@@ -28,20 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(lunch_warehouse));
             label1 = new Label();
-            lunch_options_cb = new ComboBox();
-            lunch_type_cb = new ComboBox();
+            lunch_name = new ComboBox();
+            lunch_type_desc = new ComboBox();
             label2 = new Label();
             user_name = new ComboBox();
             label3 = new Label();
-            label4 = new Label();
             label5 = new Label();
             mark_paid = new Button();
-            listView1 = new ListView();
-            lunch_type_view = new ListView();
+            user_purchases = new ListView();
             button4 = new Button();
             lunch_options_view = new ListView();
-            label6 = new Label();
             label7 = new Label();
             lunch_stock_qty = new TextBox();
             lunch_price = new TextBox();
@@ -51,9 +49,8 @@
             label10 = new Label();
             lunch_cost = new TextBox();
             label11 = new Label();
-            textBox4 = new TextBox();
-            label12 = new Label();
-            label13 = new Label();
+            ddt = new TextBox();
+            user_open = new Label();
             print_all = new CheckBox();
             pictureBox1 = new PictureBox();
             start_date = new DateTimePicker();
@@ -62,11 +59,12 @@
             label15 = new Label();
             groupBox1 = new GroupBox();
             label16 = new Label();
-            textBox1 = new TextBox();
+            lunch_supplier_code = new TextBox();
             label17 = new Label();
-            textBox2 = new TextBox();
-            compulsory = new TextBox();
-            lunch_desc = new Label();
+            lunch_be_code = new TextBox();
+            lunch_desc = new TextBox();
+            label = new Label();
+            checkBox1 = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -80,23 +78,25 @@
             label1.TabIndex = 1;
             label1.Text = "Lunch";
             // 
-            // lunch_options_cb
+            // lunch_name
             // 
-            lunch_options_cb.FormattingEnabled = true;
-            lunch_options_cb.Location = new Point(71, 12);
-            lunch_options_cb.Name = "lunch_options_cb";
-            lunch_options_cb.Size = new Size(255, 23);
-            lunch_options_cb.TabIndex = 2;
-            lunch_options_cb.Tag = "compulsory";
+            lunch_name.FormattingEnabled = true;
+            lunch_name.Location = new Point(71, 12);
+            lunch_name.Name = "lunch_name";
+            lunch_name.Size = new Size(255, 23);
+            lunch_name.TabIndex = 2;
+            lunch_name.Tag = "compulsory";
+            lunch_name.SelectedIndexChanged += lunch_name_SelectedIndexChanged;
             // 
-            // lunch_type_cb
+            // lunch_type_desc
             // 
-            lunch_type_cb.FormattingEnabled = true;
-            lunch_type_cb.Location = new Point(398, 12);
-            lunch_type_cb.Name = "lunch_type_cb";
-            lunch_type_cb.Size = new Size(275, 23);
-            lunch_type_cb.TabIndex = 4;
-            lunch_type_cb.Tag = "compulsory";
+            lunch_type_desc.FormattingEnabled = true;
+            lunch_type_desc.Location = new Point(398, 12);
+            lunch_type_desc.Name = "lunch_type_desc";
+            lunch_type_desc.Size = new Size(275, 23);
+            lunch_type_desc.TabIndex = 4;
+            lunch_type_desc.Tag = "compulsory";
+            lunch_type_desc.SelectedIndexChanged += lunch_type_desc_SelectedIndexChanged_1;
             // 
             // label2
             // 
@@ -114,6 +114,7 @@
             user_name.Name = "user_name";
             user_name.Size = new Size(355, 23);
             user_name.TabIndex = 8;
+            user_name.SelectedIndexChanged += user_name_SelectedIndexChanged;
             // 
             // label3
             // 
@@ -124,23 +125,14 @@
             label3.TabIndex = 7;
             label3.Text = "User";
             // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(27, 720);
-            label4.Name = "label4";
-            label4.Size = new Size(93, 15);
-            label4.TabIndex = 9;
-            label4.Text = "Total this month";
-            // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(27, 744);
+            label5.Location = new Point(27, 731);
             label5.Name = "label5";
-            label5.Size = new Size(70, 15);
+            label5.Size = new Size(58, 15);
             label5.TabIndex = 10;
-            label5.Text = "Total overall";
+            label5.Text = "User Total";
             // 
             // mark_paid
             // 
@@ -148,28 +140,22 @@
             mark_paid.BackgroundImageLayout = ImageLayout.Zoom;
             mark_paid.FlatAppearance.BorderSize = 0;
             mark_paid.FlatStyle = FlatStyle.Flat;
-            mark_paid.Location = new Point(879, 720);
+            mark_paid.Location = new Point(940, 720);
             mark_paid.Name = "mark_paid";
             mark_paid.Size = new Size(160, 37);
             mark_paid.TabIndex = 11;
-            mark_paid.Text = "Mark Paid";
+            mark_paid.Text = "Close Monthly Bill";
             mark_paid.UseVisualStyleBackColor = true;
             // 
-            // listView1
+            // user_purchases
             // 
-            listView1.Location = new Point(27, 475);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(1012, 242);
-            listView1.TabIndex = 12;
-            listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // lunch_type_view
-            // 
-            lunch_type_view.Location = new Point(306, 90);
-            lunch_type_view.Name = "lunch_type_view";
-            lunch_type_view.Size = new Size(399, 297);
-            lunch_type_view.TabIndex = 14;
-            lunch_type_view.UseCompatibleStateImageBehavior = false;
+            user_purchases.FullRowSelect = true;
+            user_purchases.Location = new Point(27, 475);
+            user_purchases.MultiSelect = false;
+            user_purchases.Name = "user_purchases";
+            user_purchases.Size = new Size(1080, 242);
+            user_purchases.TabIndex = 12;
+            user_purchases.UseCompatibleStateImageBehavior = false;
             // 
             // button4
             // 
@@ -186,25 +172,16 @@
             // 
             // lunch_options_view
             // 
-            lunch_options_view.Location = new Point(711, 90);
+            lunch_options_view.Location = new Point(306, 90);
             lunch_options_view.Name = "lunch_options_view";
-            lunch_options_view.Size = new Size(618, 297);
+            lunch_options_view.Size = new Size(1090, 312);
             lunch_options_view.TabIndex = 15;
             lunch_options_view.UseCompatibleStateImageBehavior = false;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(306, 72);
-            label6.Name = "label6";
-            label6.Size = new Size(31, 15);
-            label6.TabIndex = 16;
-            label6.Text = "Type";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(711, 72);
+            label7.Location = new Point(306, 72);
             label7.Name = "label7";
             label7.Size = new Size(51, 15);
             label7.TabIndex = 17;
@@ -212,15 +189,15 @@
             // 
             // lunch_stock_qty
             // 
-            lunch_stock_qty.Location = new Point(711, 13);
+            lunch_stock_qty.Location = new Point(731, 14);
             lunch_stock_qty.Name = "lunch_stock_qty";
-            lunch_stock_qty.Size = new Size(169, 23);
+            lunch_stock_qty.Size = new Size(162, 23);
             lunch_stock_qty.TabIndex = 18;
             lunch_stock_qty.Tag = "compulsory";
             // 
             // lunch_price
             // 
-            lunch_price.Location = new Point(718, 45);
+            lunch_price.Location = new Point(731, 46);
             lunch_price.Name = "lunch_price";
             lunch_price.Size = new Size(162, 23);
             lunch_price.TabIndex = 19;
@@ -232,17 +209,18 @@
             save_lunch_data.BackgroundImageLayout = ImageLayout.Zoom;
             save_lunch_data.FlatAppearance.BorderSize = 0;
             save_lunch_data.FlatStyle = FlatStyle.Flat;
-            save_lunch_data.Location = new Point(1169, 425);
+            save_lunch_data.Location = new Point(1237, 408);
             save_lunch_data.Name = "save_lunch_data";
             save_lunch_data.Size = new Size(160, 37);
             save_lunch_data.TabIndex = 6;
             save_lunch_data.Text = "Save Changes";
             save_lunch_data.UseVisualStyleBackColor = true;
+            save_lunch_data.Click += save_lunch_data_Click;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(679, 16);
+            label8.Location = new Point(692, 17);
             label8.Name = "label8";
             label8.Size = new Size(26, 15);
             label8.TabIndex = 20;
@@ -252,7 +230,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(679, 48);
+            label9.Location = new Point(692, 49);
             label9.Name = "label9";
             label9.Size = new Size(33, 15);
             label9.TabIndex = 21;
@@ -261,7 +239,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(886, 16);
+            label10.Location = new Point(941, 17);
             label10.Name = "label10";
             label10.Size = new Size(31, 15);
             label10.TabIndex = 23;
@@ -269,7 +247,7 @@
             // 
             // lunch_cost
             // 
-            lunch_cost.Location = new Point(925, 12);
+            lunch_cost.Location = new Point(980, 13);
             lunch_cost.Name = "lunch_cost";
             lunch_cost.Size = new Size(163, 23);
             lunch_cost.TabIndex = 22;
@@ -278,36 +256,27 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(1107, 16);
+            label11.Location = new Point(1195, 17);
             label11.Name = "label11";
             label11.Size = new Size(28, 15);
             label11.TabIndex = 25;
             label11.Text = "DDT";
             // 
-            // textBox4
+            // ddt
             // 
-            textBox4.Location = new Point(1146, 12);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(163, 23);
-            textBox4.TabIndex = 24;
+            ddt.Location = new Point(1246, 13);
+            ddt.Name = "ddt";
+            ddt.Size = new Size(151, 23);
+            ddt.TabIndex = 24;
             // 
-            // label12
+            // user_open
             // 
-            label12.AutoSize = true;
-            label12.Location = new Point(145, 744);
-            label12.Name = "label12";
-            label12.Size = new Size(70, 15);
-            label12.TabIndex = 27;
-            label12.Text = "Total overall";
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Location = new Point(145, 720);
-            label13.Name = "label13";
-            label13.Size = new Size(93, 15);
-            label13.TabIndex = 26;
-            label13.Text = "Total this month";
+            user_open.AutoSize = true;
+            user_open.Location = new Point(145, 731);
+            user_open.Name = "user_open";
+            user_open.Size = new Size(12, 15);
+            user_open.TabIndex = 27;
+            user_open.Text = "/";
             // 
             // print_all
             // 
@@ -323,9 +292,9 @@
             // 
             pictureBox1.BackgroundImage = Resources.BE_Logo_Single_Line_RGB_jpg;
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Location = new Point(1147, 720);
+            pictureBox1.Location = new Point(1313, 720);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(183, 89);
+            pictureBox1.Size = new Size(84, 39);
             pictureBox1.TabIndex = 29;
             pictureBox1.TabStop = false;
             // 
@@ -369,7 +338,7 @@
             groupBox1.Controls.Add(start_date);
             groupBox1.Controls.Add(label14);
             groupBox1.Controls.Add(end_date);
-            groupBox1.Location = new Point(1045, 475);
+            groupBox1.Location = new Point(1112, 475);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(284, 239);
             groupBox1.TabIndex = 34;
@@ -379,53 +348,65 @@
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(886, 48);
+            label16.Location = new Point(941, 49);
             label16.Name = "label16";
             label16.Size = new Size(35, 15);
             label16.TabIndex = 36;
             label16.Text = "Code";
             // 
-            // textBox1
+            // lunch_supplier_code
             // 
-            textBox1.Location = new Point(925, 44);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(163, 23);
-            textBox1.TabIndex = 35;
-            textBox1.Tag = "compulsory";
+            lunch_supplier_code.Location = new Point(980, 45);
+            lunch_supplier_code.Name = "lunch_supplier_code";
+            lunch_supplier_code.Size = new Size(163, 23);
+            lunch_supplier_code.TabIndex = 35;
+            lunch_supplier_code.Tag = "compulsory";
             // 
             // label17
             // 
             label17.AutoSize = true;
-            label17.Location = new Point(1101, 48);
+            label17.Location = new Point(1189, 49);
             label17.Name = "label17";
             label17.Size = new Size(51, 15);
             label17.TabIndex = 38;
             label17.Text = "BE Code";
             // 
-            // textBox2
+            // lunch_be_code
             // 
-            textBox2.Location = new Point(1158, 44);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(151, 23);
-            textBox2.TabIndex = 37;
-            // 
-            // compulsory
-            // 
-            compulsory.Location = new Point(27, 90);
-            compulsory.Multiline = true;
-            compulsory.Name = "compulsory";
-            compulsory.Size = new Size(273, 297);
-            compulsory.TabIndex = 39;
-            compulsory.Tag = "compulsory";
+            lunch_be_code.Location = new Point(1246, 45);
+            lunch_be_code.Name = "lunch_be_code";
+            lunch_be_code.Size = new Size(151, 23);
+            lunch_be_code.TabIndex = 37;
+            lunch_be_code.Tag = "compulsory";
             // 
             // lunch_desc
             // 
-            lunch_desc.AutoSize = true;
-            lunch_desc.Location = new Point(26, 72);
+            lunch_desc.Location = new Point(27, 90);
+            lunch_desc.MaxLength = 255;
+            lunch_desc.Multiline = true;
             lunch_desc.Name = "lunch_desc";
-            lunch_desc.Size = new Size(103, 15);
-            lunch_desc.TabIndex = 40;
-            lunch_desc.Text = "Lunch Description";
+            lunch_desc.Size = new Size(273, 312);
+            lunch_desc.TabIndex = 39;
+            lunch_desc.Tag = "compulsory";
+            // 
+            // label
+            // 
+            label.AutoSize = true;
+            label.Location = new Point(26, 72);
+            label.Name = "label";
+            label.Size = new Size(103, 15);
+            label.TabIndex = 40;
+            label.Text = "Lunch Description";
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(1120, 418);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(111, 19);
+            checkBox1.TabIndex = 41;
+            checkBox1.Text = "Update Selected";
+            checkBox1.UseVisualStyleBackColor = true;
             // 
             // lunch_warehouse
             // 
@@ -433,19 +414,19 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             BackgroundImageLayout = ImageLayout.Zoom;
-            ClientSize = new Size(1342, 818);
+            ClientSize = new Size(1403, 761);
+            Controls.Add(checkBox1);
+            Controls.Add(label);
             Controls.Add(lunch_desc);
-            Controls.Add(compulsory);
             Controls.Add(label17);
-            Controls.Add(textBox2);
+            Controls.Add(lunch_be_code);
             Controls.Add(label16);
-            Controls.Add(textBox1);
+            Controls.Add(lunch_supplier_code);
             Controls.Add(groupBox1);
             Controls.Add(pictureBox1);
-            Controls.Add(label12);
-            Controls.Add(label13);
+            Controls.Add(user_open);
             Controls.Add(label11);
-            Controls.Add(textBox4);
+            Controls.Add(ddt);
             Controls.Add(label10);
             Controls.Add(lunch_cost);
             Controls.Add(label9);
@@ -453,21 +434,20 @@
             Controls.Add(lunch_price);
             Controls.Add(lunch_stock_qty);
             Controls.Add(label7);
-            Controls.Add(label6);
             Controls.Add(lunch_options_view);
-            Controls.Add(lunch_type_view);
-            Controls.Add(listView1);
+            Controls.Add(user_purchases);
             Controls.Add(mark_paid);
             Controls.Add(label5);
-            Controls.Add(label4);
             Controls.Add(user_name);
             Controls.Add(label3);
             Controls.Add(save_lunch_data);
-            Controls.Add(lunch_type_cb);
+            Controls.Add(lunch_type_desc);
             Controls.Add(label2);
-            Controls.Add(lunch_options_cb);
+            Controls.Add(lunch_name);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "lunch_warehouse";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "lunch_warehouse";
             Load += lunch_warehouse_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -479,19 +459,16 @@
 
         #endregion
         private Label label1;
-        private ComboBox lunch_options_cb;
-        private ComboBox lunch_type_cb;
+        private ComboBox lunch_name;
+        private ComboBox lunch_type_desc;
         private Label label2;
         private ComboBox user_name;
         private Label label3;
-        private Label label4;
         private Label label5;
         private Button mark_paid;
-        private ListView listView1;
-        private ListView lunch_type_view;
+        private ListView user_purchases;
         private Button button4;
         private ListView lunch_options_view;
-        private Label label6;
         private Label label7;
         private TextBox lunch_stock_qty;
         private TextBox lunch_price;
@@ -501,9 +478,8 @@
         private Label label10;
         private TextBox lunch_cost;
         private Label label11;
-        private TextBox textBox4;
-        private Label label12;
-        private Label label13;
+        private TextBox ddt;
+        private Label user_open;
         private CheckBox print_all;
         private PictureBox pictureBox1;
         private DateTimePicker start_date;
@@ -512,10 +488,11 @@
         private Label label15;
         private GroupBox groupBox1;
         private Label label16;
-        private TextBox textBox1;
+        private TextBox lunch_supplier_code;
         private Label label17;
-        private TextBox textBox2;
-        private TextBox compulsory;
-        private Label lunch_desc;
+        private TextBox lunch_be_code;
+        private TextBox lunch_desc;
+        private Label label;
+        private CheckBox checkBox1;
     }
 }

@@ -139,8 +139,14 @@
   <data name="BlueButton v2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BlueButton v2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="reset_filter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\reset_filter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="JobReport" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\JobReport.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IMG_0913" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IMG_0913.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BE Logo_Single Line_RGB_jpg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BE Logo_Single Line_RGB_jpg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,13 +157,19 @@
   <data name="add_to_basket" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add_to_basket.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="note_s" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\note_s.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="spaghetti" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\spaghetti.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="meat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\meat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="note_s" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\note_s.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BE Logo_Single_RGB_jpg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BE Logo_Single_RGB_jpg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LoginIcon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LoginIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
