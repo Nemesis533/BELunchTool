@@ -223,7 +223,8 @@ namespace BELunchTool.Properties
             user_purchase_obj user_Purchase_Obj = new user_purchase_obj();
             lunch_option lunch_Option = new lunch_option();
             User_Object selected_user = new User_Object();
-            user_purchases.Clear();
+            user_purchases.Items.Clear();
+            user_purchase_obj_list.Clear();
             selected_user.P_user_id = Convert.ToInt32(SQL_Queries.GetValues(Connection_Handler, selected_user.P_MyTable, selected_user.P_MyIdString, DistinctOrGeneral.Distinct, selected_user.P_MyNameString, user_name.SelectedItem.ToString(), AndOR.ANDEnum, true).Rows[0][0]);
             if (selected_user.P_user_id == 0)
             {
@@ -236,6 +237,7 @@ namespace BELunchTool.Properties
             dt = SQL_Queries.GetValues(Connection_Handler, user_Purchase_Obj.P_MyTable, lunch_Option.P_MyIdString, DistinctOrGeneral.General, selected_user.P_MyIdString + "|" + "status", selected_user.P_user_id.ToString() + "|" + "0");
             foreach (DataRow dataRow in dt.Rows)
             {
+                user_Purchase_Obj = new user_purchase_obj();
                 user_Purchase_Obj.P_user_purchase_id = Convert.ToInt16(dataRow[user_Purchase_Obj.P_MyIdString]);
                 user_Purchase_Obj.PopulateSelf(Connection_Handler);
                 lunch_Option.P_lunch_id = Convert.ToInt32(dataRow[lunch_Option.P_MyIdString]);
@@ -244,6 +246,7 @@ namespace BELunchTool.Properties
                 list_of_purchased_items.Add(lunch_Option);
                 ListViewItem item = new ListViewItem(new[] { user_Purchase_Obj.P_user_purchase_id.ToString(), lunch_Option.P_lunch_name + lunch_Option.P_lunch_desc, lunch_Option.P_lunch_price.ToString(), user_Purchase_Obj.P_date.ToString(), user_Purchase_Obj.P_status.ToString() });
                 user_purchases.Items.Add(item);
+                user_purchase_obj_list.Add(user_Purchase_Obj);
             }
             user_open.Text = main_Form.get_sum_from_list(list_of_purchased_items).ToString() + " Euro";
         }
@@ -263,6 +266,9 @@ namespace BELunchTool.Properties
 
                 }
             }
+            load_user_purchases();
+
+
             MessageBox.Show($"Completed, all purchses for user {user_name.SelectedItem} have been marked as closed ", "Done!", MessageBoxButtons.OK);
         }
     }

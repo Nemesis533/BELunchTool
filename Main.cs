@@ -5,6 +5,7 @@ using Common_Classes_Namespace;
 using Common_WinfForm;
 using CommonWinForms.CommonForms;
 using ConnectivityAndSQl_Namespace;
+using System.Collections.Generic;
 using System.Data;
 
 namespace BELunchTool
@@ -53,6 +54,8 @@ namespace BELunchTool
         { //populates the list of available lunches
             DataTable dt = new DataTable();
             lunch_option lunch_option_instance = new lunch_option();
+            lunch_list.Items.Clear();
+            list_of_lunches.Clear();
             try
             {
                 dt = SQL_Queries.GetValues(Connection_Handler, lunch_option_instance.P_MyTable, "", DistinctOrGeneral.General);
@@ -195,6 +198,7 @@ namespace BELunchTool
 
 
                         }
+
                         PopulateLunchList(list_of_lunches, lunch_list); //when done, updates the list of available lunches
                         MessageBox.Show("Acquisto effettuato con successo!", "Buon Pranzo!", MessageBoxButtons.OK);
                     }
