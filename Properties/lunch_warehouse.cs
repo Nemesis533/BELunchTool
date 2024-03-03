@@ -223,6 +223,7 @@ namespace BELunchTool.Properties
             user_purchase_obj user_Purchase_Obj = new user_purchase_obj();
             lunch_option lunch_Option = new lunch_option();
             User_Object selected_user = new User_Object();
+            user_purchases.Clear();
             selected_user.P_user_id = Convert.ToInt32(SQL_Queries.GetValues(Connection_Handler, selected_user.P_MyTable, selected_user.P_MyIdString, DistinctOrGeneral.Distinct, selected_user.P_MyNameString, user_name.SelectedItem.ToString(), AndOR.ANDEnum, true).Rows[0][0]);
             if (selected_user.P_user_id == 0)
             {
@@ -254,8 +255,12 @@ namespace BELunchTool.Properties
             {
                 foreach( user_purchase_obj purchase in user_purchase_obj_list)
                 {
-                    purchase.P_status = 1;
-                    SQL_Queries.UpdateOrWriteSingleLine(purchase, current_user, false);
+                    if(purchase.P_date.Month == DateTime.Now.Month )
+                    {
+                        purchase.P_status = 1;
+                        SQL_Queries.UpdateOrWriteSingleLine(purchase, current_user, false);
+                    }
+
                 }
             }
             MessageBox.Show($"Completed, all purchses for user {user_name.SelectedItem} have been marked as closed ", "Done!", MessageBoxButtons.OK);

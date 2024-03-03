@@ -191,8 +191,11 @@ namespace BELunchTool
                             SQL_Queries.UpdateOrWriteSingleLine(user_Purchase_Obj, current_user, false );
                             //when an item is purchsed, its quntity is reduced by 1
                             lunch.P_lunch_stock_qty = lunch.P_lunch_stock_qty - 1;
+                            SQL_Queries.UpdateOrWriteSingleLine(lunch, current_user, false);
+
 
                         }
+                        PopulateLunchList(list_of_lunches, lunch_list); //when done, updates the list of available lunches
                         MessageBox.Show("Acquisto effettuato con successo!", "Buon Pranzo!", MessageBoxButtons.OK);
                     }
                     catch (ErrorHandler err)
