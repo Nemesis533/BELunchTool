@@ -46,6 +46,8 @@
             button1 = new Button();
             label9 = new Label();
             version = new Label();
+            label3 = new Label();
+            label6 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -75,7 +77,7 @@
             remove.BackgroundImage = Properties.Resources.arrow_left;
             remove.BackgroundImageLayout = ImageLayout.Zoom;
             remove.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            remove.Location = new Point(952, 349);
+            remove.Location = new Point(952, 215);
             remove.Name = "remove";
             remove.Size = new Size(128, 128);
             remove.TabIndex = 13;
@@ -87,7 +89,7 @@
             add_to_basket.BackgroundImage = Properties.Resources.add_to_basket;
             add_to_basket.BackgroundImageLayout = ImageLayout.Zoom;
             add_to_basket.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            add_to_basket.Location = new Point(1764, 483);
+            add_to_basket.Location = new Point(1752, 349);
             add_to_basket.Name = "add_to_basket";
             add_to_basket.Size = new Size(128, 128);
             add_to_basket.TabIndex = 14;
@@ -108,7 +110,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(1092, 483);
+            label2.Location = new Point(1092, 346);
             label2.Name = "label2";
             label2.Size = new Size(94, 37);
             label2.TabIndex = 16;
@@ -118,7 +120,7 @@
             // 
             basket_total.AutoSize = true;
             basket_total.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            basket_total.Location = new Point(1278, 483);
+            basket_total.Location = new Point(1278, 346);
             basket_total.Name = "basket_total";
             basket_total.Size = new Size(28, 37);
             basket_total.TabIndex = 17;
@@ -128,7 +130,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(1092, 574);
+            label5.Location = new Point(1080, 515);
             label5.Name = "label5";
             label5.Size = new Size(170, 37);
             label5.TabIndex = 19;
@@ -136,14 +138,13 @@
             // 
             // see_history
             // 
-            see_history.BackgroundImage = Properties.Resources.LoginIcon1;
+            see_history.BackgroundImage = (Image)resources.GetObject("see_history.BackgroundImage");
             see_history.BackgroundImageLayout = ImageLayout.Zoom;
             see_history.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            see_history.Location = new Point(1764, 902);
+            see_history.Location = new Point(1752, 844);
             see_history.Name = "see_history";
             see_history.Size = new Size(128, 128);
             see_history.TabIndex = 20;
-            see_history.Text = "Accedi";
             see_history.UseVisualStyleBackColor = true;
             see_history.Click += see_history_Click;
             // 
@@ -151,7 +152,7 @@
             // 
             purchases_total.AutoSize = true;
             purchases_total.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            purchases_total.Location = new Point(1278, 899);
+            purchases_total.Location = new Point(1278, 844);
             purchases_total.Name = "purchases_total";
             purchases_total.Size = new Size(28, 37);
             purchases_total.TabIndex = 22;
@@ -161,7 +162,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(1092, 899);
+            label7.Location = new Point(1092, 844);
             label7.Name = "label7";
             label7.Size = new Size(94, 37);
             label7.TabIndex = 21;
@@ -187,7 +188,7 @@
             basket.Location = new Point(1092, 69);
             basket.MultiSelect = false;
             basket.Name = "basket";
-            basket.Size = new Size(800, 408);
+            basket.Size = new Size(788, 274);
             basket.TabIndex = 25;
             basket.UseCompatibleStateImageBehavior = false;
             // 
@@ -195,7 +196,7 @@
             // 
             purchases.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
             purchases.FullRowSelect = true;
-            purchases.Location = new Point(1092, 617);
+            purchases.Location = new Point(1080, 558);
             purchases.MultiSelect = false;
             purchases.Name = "purchases";
             purchases.Size = new Size(800, 274);
@@ -235,12 +236,34 @@
             version.TabIndex = 30;
             version.Text = "Versione";
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(1771, 480);
+            label3.Name = "label3";
+            label3.Size = new Size(98, 37);
+            label3.TabIndex = 31;
+            label3.Text = "Ordina";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.Location = new Point(1739, 975);
+            label6.Name = "label6";
+            label6.Size = new Size(158, 37);
+            label6.TabIndex = 32;
+            label6.Text = "Vedi Storico";
+            // 
             // main_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1920, 1032);
+            Controls.Add(label6);
+            Controls.Add(label3);
             Controls.Add(version);
             Controls.Add(label9);
             Controls.Add(button1);
@@ -286,5 +309,7 @@
         private Button button1;
         private Label label9;
         private Label version;
+        private Label label3;
+        private Label label6;
     }
 }

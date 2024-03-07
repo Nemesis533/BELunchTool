@@ -107,11 +107,15 @@ namespace BELunchTool
             //opens the quantity editing screen - required authentication before proceeding
             login_form login_Form = new login_form(this);
             login_Form.ShowDialog();
-            if (login_Form.autorized)
+            if (login_Form.autorized & login_Form.P_User_Object.P_is_admin == 1)
             {
                 lunch_warehouse lunch_Warehouse = new lunch_warehouse();
                 lunch_Warehouse.current_user = login_Form.P_User_Object;
                 lunch_Warehouse.Show();
+            }
+            else
+            {
+                MessageBox.Show($"Utente non Autorizzato", "Impossibile Procedere", MessageBoxButtons.YesNo);
             }
 
         }
@@ -247,7 +251,7 @@ namespace BELunchTool
                     foreach (DataRow dataRow in dt.Rows)
                     {
                         //populating objects
-                        user_Purchase_Obj.P_lunch_id = Convert.ToInt32(dataRow[user_Purchase_Obj.P_MyIdString]);
+                        user_Purchase_Obj.P_user_purchase_id= Convert.ToInt32(dataRow[0]);
                         user_Purchase_Obj.PopulateSelf(Connection_Handler);
                         lunch_Option.P_lunch_id = Convert.ToInt32(dataRow[lunch_Option.P_MyIdString]);
                         lunch_Option.PopulateSelf(Connection_Handler);

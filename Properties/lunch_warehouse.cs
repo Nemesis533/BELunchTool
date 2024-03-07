@@ -15,6 +15,7 @@ using BEToolsClassLibrary;
 using CommonWinForms.CommonForms;
 using BELunchTool;
 using System.Reflection;
+using System.Diagnostics.Metrics;
 
 namespace BELunchTool.Properties
 {
@@ -28,6 +29,9 @@ namespace BELunchTool.Properties
             this.lunch_type_desc.DropDown += new System.EventHandler(this.lunch_type_desc_DropDown);
             InitLunchLists();
             populate_lunch_view_list();
+            //setting datetimepicker values
+            start_date.Value = DateTime.Today.AddDays(-30);
+            end_date.Value = DateTime.Today;
 
         }
         public User_Object current_user = new User_Object();
@@ -153,14 +157,14 @@ namespace BELunchTool.Properties
 
         }
 
-        private bool save_or_update_data(bool update_lunch_name = false, bool update_type_name = false)
+        private bool save_or_update_data(bool create_lunch_name = false, bool update_type_name = false)
         {
             lunch_option lunch_Option = new lunch_option();
             lunch_type lunch_type = new lunch_type();
             try
             {
                 Common_Functions_WinfForm.PopObjFromUIOrUIFromObj(lunch_Option, this, false);
-                if (update_lunch_name) { lunch_Option.P_lunch_name = current_option.P_lunch_name; }; //this way the name can be updated instead of creatign a new option - otherwise it just writes what it finds
+                if (create_lunch_name) { current_option.P_lunch_id = 0; }; //this way the name can be updated instead of creatign a new option - otherwise it just writes what it finds
                 if (current_option.P_lunch_id != 0) { lunch_Option.P_lunch_id = current_option.P_lunch_id; } //shoudl this be an existing option, the id gets written to it can update
                 lunch_Option.P_lunch_id = SQL_Queries.UpdateOrWriteSingleLine(lunch_Option, current_user, true);
             }
@@ -191,11 +195,26 @@ namespace BELunchTool.Properties
             //will check if all compulsory fields are populated and then insert or update the values
             if (Common_Functions_WinfForm.CheckControlsByTag(this, Common_Functions_WinfForm.TagsList.compulsory))
             {
-                if (save_or_update_data())
+                DialogResult result;
+                if (create_new.Checked)
                 {
-                    Common_Functions_WinfForm.DisplayMessage($"Data successfully saved for meal {lunch_name.Text}", "Data Saved", ButtonTypesEnum.OkOnly);
-                    populate_lunch_view_list();
+                    result = MessageBox.Show($"Creare un nuovo piatto?", "Conferma", MessageBoxButtons.YesNo);
                 }
+                else
+                {
+                     result = MessageBox.Show($"Aggiornare il piatto {current_option.P_lunch_name} ? ", "Conferma", MessageBoxButtons.YesNo);
+                }
+                
+                if (result == DialogResult.Yes)
+                {
+                    if (save_or_update_data(create_new.Checked))
+                    {
+                        Common_Functions_WinfForm.DisplayMessage($"Data successfully saved for meal {lunch_name.Text}", "Data Saved", ButtonTypesEnum.OkOnly);
+                        populate_lunch_view_list();
+                    }
+
+                }
+
             }
         }
 
@@ -241,15 +260,15 @@ namespace BELunchTool.Properties
             System.Data.DataTable dt = new System.Data.DataTable();
             user_purchase_obj user_Purchase_Obj = new user_purchase_obj();
             lunch_option lunch_Option = new lunch_option();
-            if(selected_user is null)
+            if (selected_user is null)
             {
                 selected_user = new User_Object();
                 selected_user.P_user_id = Convert.ToInt32(SQL_Queries.GetValues(Connection_Handler, selected_user.P_MyTable, selected_user.P_MyIdString, DistinctOrGeneral.Distinct, selected_user.P_MyNameString, user_name.SelectedItem.ToString(), AndOR.ANDEnum, true).Rows[0][0]);
             }
-                
+
             user_purchases.Items.Clear();
             user_purchase_obj_list.Clear();
-            
+
             if (selected_user.P_user_id == 0)
             {
                 return;
@@ -258,22 +277,22 @@ namespace BELunchTool.Properties
             {
                 selected_user.PopulateSelf(Connection_Handler);
             }
-            if(include_closed.Checked)
+            if (include_closed.Checked)
             {
-                
+
                 dt = SQL_Queries.GetValues(Connection_Handler, user_Purchase_Obj.P_MyTable, lunch_Option.P_MyIdString, DistinctOrGeneral.General, selected_user.P_MyIdString, selected_user.P_user_id.ToString());
             }
             else
             {
                 dt = SQL_Queries.GetValues(Connection_Handler, user_Purchase_Obj.P_MyTable, lunch_Option.P_MyIdString, DistinctOrGeneral.General, selected_user.P_MyIdString + "|" + "status", selected_user.P_user_id.ToString() + "|" + "0");
             }
-            
+
             foreach (DataRow dataRow in dt.Rows)
             {
                 user_Purchase_Obj = new user_purchase_obj();
                 user_Purchase_Obj.P_user_purchase_id = Convert.ToInt16(dataRow[user_Purchase_Obj.P_MyIdString]);
                 user_Purchase_Obj.PopulateSelf(Connection_Handler);
-                if(TimeBetween(user_Purchase_Obj.P_date, start_date.Value.Date, end_date.Value.Date))
+                if (TimeBetween(user_Purchase_Obj.P_date, start_date.Value.Date, end_date.Value.Date))
                 {
                     lunch_Option.P_lunch_id = Convert.ToInt32(dataRow[lunch_Option.P_MyIdString]);
                     lunch_Option.PopulateSelf(Connection_Handler);
@@ -310,7 +329,7 @@ namespace BELunchTool.Properties
                 }
             }
             load_user_purchases(null);
-            MessageBox.Show($"Completato, ho stornato tutti gli acquisti dell'utente {user_name.SelectedItem}di questo mese ", "Completato!", MessageBoxButtons.OK);
+            MessageBox.Show($"Completato, ho stornato tutti gli acquisti dell'utente {user_name.SelectedItem} nel periodo selezionato ", "Completato!", MessageBoxButtons.OK);
         }
 
         private void label11_Click(object sender, EventArgs e)
@@ -320,33 +339,17 @@ namespace BELunchTool.Properties
 
         private void button4_Click(object sender, EventArgs e)
         {
-            System.Data.DataTable dt = new System.Data.DataTable();
-            user_purchase_obj user_Purchase_Obj = new user_purchase_obj();
-            lunch_option lunch_Option = new lunch_option();
-            SaveFileDialog saveDialog = new SaveFileDialog();
             List<user_purchase_obj> user_purchase_obj_ = new List<user_purchase_obj>();
+            SaveFileDialog saveDialog = new SaveFileDialog();
+
+            
+
             saveDialog.Filter = "Excel Files|*.xls";
             DialogResult result = saveDialog.ShowDialog();
             if (result == DialogResult.OK)
             {
-                if (print_all.Checked)
-                {
-                    dt = SQL_Queries.GetValues(Connection_Handler, user_Purchase_Obj.P_MyTable, lunch_Option.P_MyIdString, DistinctOrGeneral.General, "date", $" < {end_date.Value.ToShortDateString()}| > {start_date.Value.ToShortDateString()}");
-                    foreach (DataRow dataRow in dt.Rows)
-                    {
-                        user_purchase_obj user_Purchase = new user_purchase_obj();
-                        user_Purchase.P_user_purchase_id = Convert.ToInt32(dataRow[user_Purchase.P_MyIdString]);
-                        user_Purchase.UpdateProperty(dataRow, user_Purchase, dt);
-                        user_purchase_obj_.Add(user_Purchase);                        
-                    }
-                }
-
-                else
-                {
-                    user_purchase_obj_ = user_purchase_obj_list;
-                }
-
-                if(ListToExcel(user_purchase_obj_, saveDialog.FileName))
+                user_purchase_obj_ = get_purchases(print_all.Checked);
+                if (ListToExcel(user_purchase_obj_, saveDialog.FileName))
                 {
                     MessageBox.Show($"File {saveDialog.FileName} creato", "Completato!", MessageBoxButtons.OK);
                 }
@@ -356,56 +359,110 @@ namespace BELunchTool.Properties
                 }
             }
         }
+        
+        private List<user_purchase_obj> get_purchases(bool for_all_users)
+        {
+            List<user_purchase_obj> user_purchase_obj_ = new List<user_purchase_obj>();
+            System.Data.DataTable dt = new System.Data.DataTable();
+            user_purchase_obj user_Purchase_Obj = new user_purchase_obj();
+            lunch_option lunch_Option = new lunch_option();
+            if (for_all_users)
+            {
+                dt = SQL_Queries.GetValues(Connection_Handler, user_Purchase_Obj.P_MyTable, lunch_Option.P_MyIdString, DistinctOrGeneral.General);
+                foreach (DataRow dataRow in dt.Rows)
+                {
+                    user_purchase_obj user_Purchase = new user_purchase_obj();
+                    user_Purchase.P_user_purchase_id = Convert.ToInt32(dataRow[user_Purchase.P_MyIdString]);
+                    user_Purchase.UpdateProperty(dataRow, user_Purchase, dt);
+                    if (TimeBetween(user_Purchase.P_date, start_date.Value.Date, end_date.Value.Date))
+                    {
+                        
+
+                        user_purchase_obj_.Add(user_Purchase);
+                    }
+                }
+            }
+
+            else
+            {
+                user_purchase_obj_ = user_purchase_obj_list;
+            }
+            return user_purchase_obj_;
+        }
 
         public bool ListToExcel(List<user_purchase_obj> list, string filePath)
         {
-            try { 
-            DataTable dtTable = new DataTable();                   
-            
-            //create columns
-            dtTable.Columns.Add(new DataColumn("ID Ordine", typeof(string)));
-            dtTable.Columns.Add(new DataColumn("Utente", typeof(string)));
-            dtTable.Columns.Add(new DataColumn("Data", typeof(string)));
-            dtTable.Columns.Add(new DataColumn("Numero Ordine", typeof(string)));
-            dtTable.Columns.Add(new DataColumn("Nome Piatto", typeof(string)));
-            dtTable.Columns.Add(new DataColumn("Valore in Ticket", typeof(string)));
-     
-
-            // Populate data from list
-
-            for (int i = 1; i < list.Count; i++)
+            try
             {
-                user_purchase_obj user_purchase_obj = list[i];
-                User_Object user = new User_Object();
-                lunch_option lunch_Option = new lunch_option();
-                user.P_user_id = user_purchase_obj.P_user_id;
-                lunch_Option.P_lunch_id = user_purchase_obj.P_lunch_id;
-                lunch_Option.PopulateSelf(current_user.P_Conn_Handler);
-                user.PopulateSelf(current_user.P_Conn_Handler);
-                //populating rows
-                DataRow dr = dtTable.NewRow();
-                dr[0] = user_purchase_obj.P_user_purchase_id;
-                dr[1] = user.P_user_name;
-                dr[2] = user_purchase_obj.P_date;
-                dr[3] = user_purchase_obj.P_user_purchase_id;
-                dr[4] = lunch_Option.P_lunch_name;
-                dr[5] = lunch_Option.P_lunch_price;
-                dtTable.Rows.Add(dr);
+                DataTable dtTable = new DataTable();
 
-            }
-            DataSet ds = new DataSet();
-            ds.Tables.Add(dtTable);
+                //create columns
+                dtTable.Columns.Add(new DataColumn("ID Ordine", typeof(string)));
+                dtTable.Columns.Add(new DataColumn("Utente", typeof(string)));
+                dtTable.Columns.Add(new DataColumn("Data", typeof(string)));
+                dtTable.Columns.Add(new DataColumn("Numero Ordine", typeof(string)));
+                dtTable.Columns.Add(new DataColumn("Nome Piatto", typeof(string)));
+                dtTable.Columns.Add(new DataColumn("Valore in Ticket", typeof(string)));
 
-            // Save the workbook
-            ExcelLibrary.DataSetHelper.CreateWorkbook(filePath, ds);
-            return true;
+
+                // Populate data from list
+
+                for (int i = 1; i < list.Count; i++)
+                {
+                    user_purchase_obj user_purchase_obj = list[i];
+                    User_Object user = new User_Object();
+                    lunch_option lunch_Option = new lunch_option();
+                    user.P_user_id = user_purchase_obj.P_user_id;
+                    lunch_Option.P_lunch_id = user_purchase_obj.P_lunch_id;
+                    lunch_Option.PopulateSelf(current_user.P_Conn_Handler);
+                    user.PopulateSelf(current_user.P_Conn_Handler);
+                    //populating rows
+                    DataRow dr = dtTable.NewRow();
+                    dr[0] = user_purchase_obj.P_user_purchase_id;
+                    dr[1] = user.P_user_name;
+                    dr[2] = user_purchase_obj.P_date;
+                    dr[3] = user_purchase_obj.P_user_purchase_id;
+                    dr[4] = lunch_Option.P_lunch_name;
+                    dr[5] = lunch_Option.P_lunch_price;
+                    dtTable.Rows.Add(dr);
+
+                }
+                DataSet ds = new DataSet();
+                ds.Tables.Add(dtTable);
+
+                // Save the workbook
+                ExcelLibrary.DataSetHelper.CreateWorkbook(filePath, ds);
+                return true;
             }
-            catch(ErrorHandler err)
+            catch (ErrorHandler err)
             {
                 err.LogWrite();
                 return false;
 
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int counter = 0;
+            DialogResult result = MessageBox.Show($"Stornare tutti gli acquisti di tutti gli utenti per il periodo selezionato? ", "Conferma", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                
+                List<user_purchase_obj> user_purchase_obj_ = new List<user_purchase_obj>();
+                user_purchase_obj_=  get_purchases(true);
+                foreach (user_purchase_obj purchase in user_purchase_obj_)
+                {                        
+                    if (purchase.P_status == 0)
+                    {
+                        purchase.P_status = 1;
+                        SQL_Queries.UpdateOrWriteSingleLine(purchase, current_user, false);
+                        counter++;
+                    }
+                }
+            }
+            load_user_purchases(null);
+            MessageBox.Show($"Completato, ho stornato tutti gli acquisti per tutti gli utenti nel periodo selezionato - aggiornati {counter} record ", "Completato!", MessageBoxButtons.OK);
         }
     }
 }

@@ -66,6 +66,7 @@
             lunch_desc = new TextBox();
             label = new Label();
             button1 = new Button();
+            create_new = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -216,7 +217,7 @@
             save_lunch_data.Name = "save_lunch_data";
             save_lunch_data.Size = new Size(160, 37);
             save_lunch_data.TabIndex = 6;
-            save_lunch_data.Text = "Salva Nuovo";
+            save_lunch_data.Text = "Salva Dati";
             save_lunch_data.UseVisualStyleBackColor = true;
             save_lunch_data.Click += save_lunch_data_Click;
             // 
@@ -427,6 +428,17 @@
             button1.TabIndex = 41;
             button1.Text = "Storna Tutti gli Utenti";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // create_new
+            // 
+            create_new.AutoSize = true;
+            create_new.Location = new Point(71, 41);
+            create_new.Name = "create_new";
+            create_new.Size = new Size(89, 19);
+            create_new.TabIndex = 42;
+            create_new.Text = "Crea Nuovo";
+            create_new.UseVisualStyleBackColor = true;
             // 
             // lunch_warehouse
             // 
@@ -435,6 +447,7 @@
             BackColor = Color.White;
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(1403, 761);
+            Controls.Add(create_new);
             Controls.Add(button1);
             Controls.Add(label);
             Controls.Add(lunch_desc);
@@ -515,5 +528,6 @@
         private Label label;
         private Button button1;
         private CheckBox include_closed;
+        private CheckBox create_new;
     }
 }
