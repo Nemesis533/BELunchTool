@@ -8,7 +8,7 @@ using Common_Classes_Namespace;
 
 namespace BELunchTool.Classes
 {
-    internal class user_purchase_obj : ParentClass
+    public class user_purchase_obj : ParentClass
     {
         public user_purchase_obj()
         {

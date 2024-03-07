@@ -58,13 +58,14 @@
             label14 = new Label();
             label15 = new Label();
             groupBox1 = new GroupBox();
+            include_closed = new CheckBox();
             label16 = new Label();
             lunch_supplier_code = new TextBox();
             label17 = new Label();
             lunch_be_code = new TextBox();
             lunch_desc = new TextBox();
             label = new Label();
-            checkBox1 = new CheckBox();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -74,9 +75,9 @@
             label1.AutoSize = true;
             label1.Location = new Point(27, 15);
             label1.Name = "label1";
-            label1.Size = new Size(40, 15);
+            label1.Size = new Size(38, 15);
             label1.TabIndex = 1;
-            label1.Text = "Lunch";
+            label1.Text = "Piatto";
             // 
             // lunch_name
             // 
@@ -103,9 +104,9 @@
             label2.AutoSize = true;
             label2.Location = new Point(352, 15);
             label2.Name = "label2";
-            label2.Size = new Size(31, 15);
+            label2.Size = new Size(30, 15);
             label2.TabIndex = 3;
-            label2.Text = "Type";
+            label2.Text = "Tipo";
             // 
             // user_name
             // 
@@ -121,18 +122,18 @@
             label3.AutoSize = true;
             label3.Location = new Point(27, 449);
             label3.Name = "label3";
-            label3.Size = new Size(30, 15);
+            label3.Size = new Size(42, 15);
             label3.TabIndex = 7;
-            label3.Text = "User";
+            label3.Text = "Utente";
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Location = new Point(27, 731);
             label5.Name = "label5";
-            label5.Size = new Size(58, 15);
+            label5.Size = new Size(76, 15);
             label5.TabIndex = 10;
-            label5.Text = "User Total";
+            label5.Text = "Totale Utente";
             // 
             // mark_paid
             // 
@@ -140,11 +141,11 @@
             mark_paid.BackgroundImageLayout = ImageLayout.Zoom;
             mark_paid.FlatAppearance.BorderSize = 0;
             mark_paid.FlatStyle = FlatStyle.Flat;
-            mark_paid.Location = new Point(940, 720);
+            mark_paid.Location = new Point(947, 720);
             mark_paid.Name = "mark_paid";
             mark_paid.Size = new Size(160, 37);
             mark_paid.TabIndex = 11;
-            mark_paid.Text = "Close Monthly Bill";
+            mark_paid.Text = "Storna Utente Corrente";
             mark_paid.UseVisualStyleBackColor = true;
             mark_paid.Click += mark_paid_Click;
             // 
@@ -164,12 +165,13 @@
             button4.BackgroundImageLayout = ImageLayout.Zoom;
             button4.FlatAppearance.BorderSize = 0;
             button4.FlatStyle = FlatStyle.Flat;
-            button4.Location = new Point(118, 196);
+            button4.Location = new Point(124, 196);
             button4.Name = "button4";
             button4.Size = new Size(160, 37);
             button4.TabIndex = 13;
-            button4.Text = "Print Report";
+            button4.Text = "Genera Report";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // lunch_options_view
             // 
@@ -184,9 +186,9 @@
             label7.AutoSize = true;
             label7.Location = new Point(306, 72);
             label7.Name = "label7";
-            label7.Size = new Size(51, 15);
+            label7.Size = new Size(34, 15);
             label7.TabIndex = 17;
-            label7.Text = "Lunches";
+            label7.Text = "Piatti";
             // 
             // lunch_stock_qty
             // 
@@ -214,7 +216,7 @@
             save_lunch_data.Name = "save_lunch_data";
             save_lunch_data.Size = new Size(160, 37);
             save_lunch_data.TabIndex = 6;
-            save_lunch_data.Text = "Save Changes";
+            save_lunch_data.Text = "Salva Nuovo";
             save_lunch_data.UseVisualStyleBackColor = true;
             save_lunch_data.Click += save_lunch_data_Click;
             // 
@@ -233,18 +235,18 @@
             label9.AutoSize = true;
             label9.Location = new Point(692, 49);
             label9.Name = "label9";
-            label9.Size = new Size(33, 15);
+            label9.Size = new Size(41, 15);
             label9.TabIndex = 21;
-            label9.Text = "Price";
+            label9.Text = "Prezzo";
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(941, 17);
+            label10.Location = new Point(931, 20);
             label10.Name = "label10";
-            label10.Size = new Size(31, 15);
+            label10.Size = new Size(38, 15);
             label10.TabIndex = 23;
-            label10.Text = "Cost";
+            label10.Text = "Costo";
             // 
             // lunch_cost
             // 
@@ -257,11 +259,12 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(1195, 17);
+            label11.Location = new Point(1180, 17);
             label11.Name = "label11";
             label11.Size = new Size(28, 15);
             label11.TabIndex = 25;
             label11.Text = "DDT";
+            label11.Click += label11_Click;
             // 
             // ddt
             // 
@@ -282,11 +285,11 @@
             // print_all
             // 
             print_all.AutoSize = true;
-            print_all.Location = new Point(14, 94);
+            print_all.Location = new Point(14, 134);
             print_all.Name = "print_all";
-            print_all.Size = new Size(155, 19);
+            print_all.Size = new Size(183, 19);
             print_all.TabIndex = 28;
-            print_all.Text = "Print Report for All Users";
+            print_all.Text = "Crea Report per tutti gli utenti";
             print_all.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
@@ -305,6 +308,7 @@
             start_date.Name = "start_date";
             start_date.Size = new Size(200, 23);
             start_date.TabIndex = 30;
+            start_date.Value = new DateTime(2024, 3, 7, 21, 21, 11, 0);
             // 
             // end_date
             // 
@@ -312,48 +316,60 @@
             end_date.Name = "end_date";
             end_date.Size = new Size(200, 23);
             end_date.TabIndex = 31;
+            end_date.Value = new DateTime(2024, 3, 7, 21, 21, 17, 0);
             // 
             // label14
             // 
             label14.AutoSize = true;
             label14.Location = new Point(14, 39);
             label14.Name = "label14";
-            label14.Size = new Size(58, 15);
+            label14.Size = new Size(62, 15);
             label14.TabIndex = 32;
-            label14.Text = "Start Date";
+            label14.Text = "Data Inizio";
             // 
             // label15
             // 
             label15.AutoSize = true;
             label15.Location = new Point(14, 71);
             label15.Name = "label15";
-            label15.Size = new Size(54, 15);
+            label15.Size = new Size(56, 15);
             label15.TabIndex = 33;
-            label15.Text = "End Date";
+            label15.Text = "Data Fine";
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(include_closed);
             groupBox1.Controls.Add(button4);
             groupBox1.Controls.Add(label15);
             groupBox1.Controls.Add(print_all);
             groupBox1.Controls.Add(start_date);
             groupBox1.Controls.Add(label14);
             groupBox1.Controls.Add(end_date);
-            groupBox1.Location = new Point(1112, 475);
+            groupBox1.Location = new Point(1112, 467);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(284, 239);
+            groupBox1.Size = new Size(284, 247);
             groupBox1.TabIndex = 34;
             groupBox1.TabStop = false;
             groupBox1.Text = "Reports";
             // 
+            // include_closed
+            // 
+            include_closed.AutoSize = true;
+            include_closed.Location = new Point(14, 159);
+            include_closed.Name = "include_closed";
+            include_closed.Size = new Size(106, 19);
+            include_closed.TabIndex = 34;
+            include_closed.Text = "Includi Stornati";
+            include_closed.UseVisualStyleBackColor = true;
+            // 
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(941, 49);
+            label16.Location = new Point(931, 49);
             label16.Name = "label16";
-            label16.Size = new Size(35, 15);
+            label16.Size = new Size(47, 15);
             label16.TabIndex = 36;
-            label16.Text = "Code";
+            label16.Text = "Codice ";
             // 
             // lunch_supplier_code
             // 
@@ -366,11 +382,11 @@
             // label17
             // 
             label17.AutoSize = true;
-            label17.Location = new Point(1189, 49);
+            label17.Location = new Point(1180, 49);
             label17.Name = "label17";
-            label17.Size = new Size(51, 15);
+            label17.Size = new Size(60, 15);
             label17.TabIndex = 38;
-            label17.Text = "BE Code";
+            label17.Text = "Codice BE";
             // 
             // lunch_be_code
             // 
@@ -386,7 +402,7 @@
             lunch_desc.MaxLength = 255;
             lunch_desc.Multiline = true;
             lunch_desc.Name = "lunch_desc";
-            lunch_desc.Size = new Size(273, 312);
+            lunch_desc.Size = new Size(273, 116);
             lunch_desc.TabIndex = 39;
             lunch_desc.Tag = "compulsory";
             // 
@@ -395,19 +411,22 @@
             label.AutoSize = true;
             label.Location = new Point(26, 72);
             label.Name = "label";
-            label.Size = new Size(103, 15);
+            label.Size = new Size(101, 15);
             label.TabIndex = 40;
-            label.Text = "Lunch Description";
+            label.Text = "Descrizione Piatto";
             // 
-            // checkBox1
+            // button1
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(1120, 418);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(111, 19);
-            checkBox1.TabIndex = 41;
-            checkBox1.Text = "Update Selected";
-            checkBox1.UseVisualStyleBackColor = true;
+            button1.BackgroundImage = Resources.GreenButton_v2;
+            button1.BackgroundImageLayout = ImageLayout.Zoom;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Location = new Point(513, 720);
+            button1.Name = "button1";
+            button1.Size = new Size(160, 37);
+            button1.TabIndex = 41;
+            button1.Text = "Storna Tutti gli Utenti";
+            button1.UseVisualStyleBackColor = true;
             // 
             // lunch_warehouse
             // 
@@ -416,7 +435,7 @@
             BackColor = Color.White;
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(1403, 761);
-            Controls.Add(checkBox1);
+            Controls.Add(button1);
             Controls.Add(label);
             Controls.Add(lunch_desc);
             Controls.Add(label17);
@@ -449,7 +468,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "lunch_warehouse";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "lunch_warehouse";
+            Text = "Gestione Oridini";
             Load += lunch_warehouse_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             groupBox1.ResumeLayout(false);
@@ -494,6 +513,7 @@
         private TextBox lunch_be_code;
         private TextBox lunch_desc;
         private Label label;
-        private CheckBox checkBox1;
+        private Button button1;
+        private CheckBox include_closed;
     }
 }

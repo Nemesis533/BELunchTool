@@ -218,7 +218,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label9.Location = new Point(12, 1017);
+            label9.Location = new Point(12, 1009);
             label9.Name = "label9";
             label9.Size = new Size(54, 15);
             label9.TabIndex = 29;
@@ -229,7 +229,7 @@
             // 
             version.AutoSize = true;
             version.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            version.Location = new Point(64, 1017);
+            version.Location = new Point(64, 1010);
             version.Name = "version";
             version.Size = new Size(51, 15);
             version.TabIndex = 30;
@@ -240,7 +240,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1904, 1041);
+            ClientSize = new Size(1920, 1032);
             Controls.Add(version);
             Controls.Add(label9);
             Controls.Add(button1);
@@ -258,10 +258,11 @@
             Controls.Add(remove);
             Controls.Add(add);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "main_form";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "Shop";
             Load += main_form_Load;
             ResumeLayout(false);
             PerformLayout();

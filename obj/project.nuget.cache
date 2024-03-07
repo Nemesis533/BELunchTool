@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Ii0BynfdSbsigCD3YFVfsG1ZPMwAdhcNDNdtSEsIGh6AKN1bqapmLkIHy4o/Rf6dFeirYi0TaL9x3TGRfQcdcg==",
+  "dgSpecHash": "wseb7p7l3f/HDpeEYN6To0arfSQLVPcIzVXQt6ChVMElB2XzrKigjHx+IyBEWm0FAjElYiweOv5G8NRSwGcQSw==",
   "success": true,
   "projectFilePath": "D:\\Documents\\GitRepos\\BELunchTool\\BELunchTool.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\nzanarini\\.nuget\\packages\\excellibrary\\1.2011.7.31\\excellibrary.1.2011.7.31.nupkg.sha512",
     "C:\\Users\\nzanarini\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "C:\\Users\\nzanarini\\.nuget\\packages\\microsoft.office.interop.excel\\15.0.4795.1001\\microsoft.office.interop.excel.15.0.4795.1001.nupkg.sha512",
     "C:\\Users\\nzanarini\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\nzanarini\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
     "C:\\Users\\nzanarini\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
@@ -18,5 +20,16 @@
     "C:\\Users\\nzanarini\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.27\\microsoft.aspnetcore.app.ref.6.0.27.nupkg.sha512",
     "C:\\Users\\nzanarini\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.27\\microsoft.netcore.app.host.win-x64.6.0.27.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'ExcelLibrary 1.2011.7.31' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "ExcelLibrary",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    }
+  ]
 }

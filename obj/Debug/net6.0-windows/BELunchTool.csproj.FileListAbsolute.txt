@@ -40,3 +40,5 @@ D:\Documents\GitRepos\BELunchTool\bin\Debug\net6.0-windows\runtimes\unix\lib\net
 D:\Documents\GitRepos\BELunchTool\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\Documents\GitRepos\BELunchTool\obj\Debug\net6.0-windows\BELunchTool.sourcelink.json
 D:\Documents\GitRepos\BELunchTool\obj\Debug\net6.0-windows\BELunchT.63943928.Up2Date
+D:\Documents\GitRepos\BELunchTool\bin\Debug\net6.0-windows\Microsoft.Office.Interop.Excel.dll
+D:\Documents\GitRepos\BELunchTool\bin\Debug\net6.0-windows\ExcelLibrary.dll
