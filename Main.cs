@@ -5,6 +5,7 @@ using Common_Classes_Namespace;
 using Common_WinfForm;
 using CommonWinForms.CommonForms;
 using ConnectivityAndSQl_Namespace;
+using System;
 using System.Collections.Generic;
 using System.Data;
 
@@ -39,14 +40,19 @@ namespace BELunchTool
             {
                 if (ctrl is ListView)
                 {
+                    
                     ListView ListView_instance = ctrl as ListView;
+                    ListView_instance.Columns.Clear();
                     ListView_instance.View = View.Details;
                     ListView_instance.Columns.Add("ID", 50, HorizontalAlignment.Left);
                     ListView_instance.Columns.Add("Piatto", 550, HorizontalAlignment.Left);
                     ListView_instance.Columns.Add("Quantita'", 100, HorizontalAlignment.Left);
-                    ListView_instance.Columns.Add("Prezzo", 100, HorizontalAlignment.Left);
+                    ListView_instance.Columns.Add("Prezzo (Ticket)", 100, HorizontalAlignment.Left);
                 }
             }
+            //exception tot he rule 
+            purchases.Columns[2].Text = "Data";
+
 
         }
 
@@ -230,19 +236,31 @@ namespace BELunchTool
                 login_Form.ShowDialog();
                 if (login_Form.autorized)
                 {
+                    purchases.Items.Clear();
+                    //adding columns
+                   
                     DataTable dt = new DataTable();
                     user_purchase_obj user_Purchase_Obj = new user_purchase_obj();
                     lunch_option lunch_Option = new lunch_option();
-                    dt = SQL_Queries.GetValues(Connection_Handler, user_Purchase_Obj.P_MyTable, lunch_Option.P_MyIdString, DistinctOrGeneral.Distinct, login_Form.P_User_Object.P_MyIdString + "|" + "status", login_Form.P_User_Object.P_user_id.ToString() + "|" + "0");
+                    //getting all the user open purchses
+                    dt = SQL_Queries.GetValues(Connection_Handler, user_Purchase_Obj.P_MyTable, lunch_Option.P_MyIdString, DistinctOrGeneral.General, login_Form.P_User_Object.P_MyIdString + "|" + "status", login_Form.P_User_Object.P_user_id.ToString() + "|" + "0");
                     foreach (DataRow dataRow in dt.Rows)
                     {
-                        lunch_Option.P_lunch_id = Convert.ToInt32(dataRow[0]);
+                        //populating objects
+                        user_Purchase_Obj.P_lunch_id = Convert.ToInt32(dataRow[user_Purchase_Obj.P_MyIdString]);
+                        user_Purchase_Obj.PopulateSelf(Connection_Handler);
+                        lunch_Option.P_lunch_id = Convert.ToInt32(dataRow[lunch_Option.P_MyIdString]);
                         lunch_Option.PopulateSelf(Connection_Handler);
-                        lunch_Option.P_lunch_id = Convert.ToInt16(dataRow[lunch_Option.P_MyIdString]);
+
+                        //doign it directly instad of writing a dedicated function
+                        ListViewItem item = new ListViewItem(new[] { user_Purchase_Obj.P_user_purchase_id.ToString(), lunch_Option.P_lunch_name ,user_Purchase_Obj.P_date.ToShortDateString(), lunch_Option.P_lunch_price.ToString() });
+                        purchases.Items.Add(item);
+                        
                         list_of_purchased_items.Add(lunch_Option);
                     }
-                    PopulateLunchListViews(purchases, list_of_purchased_items);
-                    purchases_total.Text = get_sum_from_list(list_of_purchased_items).ToString() + " Euro";
+                    //resizing columns and updating total price
+                    purchases.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                    purchases_total.Text = get_sum_from_list(list_of_purchased_items).ToString() + " Ticket";
 
                 }
             }

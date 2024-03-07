@@ -285,7 +285,7 @@ namespace BELunchTool.Properties
                 }
 
             }
-            user_open.Text = main_Form.get_sum_from_list(list_of_purchased_items).ToString() + " Euro";
+            user_open.Text = main_Form.get_sum_from_list(list_of_purchased_items).ToString() + " Ticket";
         }
 
         private bool TimeBetween(DateTime datetime, DateTime start, DateTime end)
@@ -403,7 +403,7 @@ namespace BELunchTool.Properties
             catch(ErrorHandler err)
             {
                 err.LogWrite();
-                return false
+                return false;
 
             }
         }
