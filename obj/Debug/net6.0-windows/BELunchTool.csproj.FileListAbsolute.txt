@@ -32,13 +32,12 @@ D:\Documents\GitRepos\BELunchTool\obj\Debug\net6.0-windows\BELunchTool.pdb
 D:\Documents\GitRepos\BELunchTool\obj\Debug\net6.0-windows\BELunchTool.genruntimeconfig.cache
 D:\Documents\GitRepos\BELunchTool\obj\Debug\net6.0-windows\ref\BELunchTool.dll
 D:\Documents\GitRepos\BELunchTool\obj\Debug\net6.0-windows\BELunchTool.Properties.lunch_warehouse.resources
+D:\Documents\GitRepos\BELunchTool\obj\Debug\net6.0-windows\BELunchTool.sourcelink.json
+D:\Documents\GitRepos\BELunchTool\obj\Debug\net6.0-windows\BELunchT.63943928.Up2Date
+D:\Documents\GitRepos\BELunchTool\bin\Debug\net6.0-windows\ExcelLibrary.dll
 D:\Documents\GitRepos\BELunchTool\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
 D:\Documents\GitRepos\BELunchTool\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
 D:\Documents\GitRepos\BELunchTool\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
 D:\Documents\GitRepos\BELunchTool\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
 D:\Documents\GitRepos\BELunchTool\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\Documents\GitRepos\BELunchTool\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-D:\Documents\GitRepos\BELunchTool\obj\Debug\net6.0-windows\BELunchTool.sourcelink.json
-D:\Documents\GitRepos\BELunchTool\obj\Debug\net6.0-windows\BELunchT.63943928.Up2Date
-D:\Documents\GitRepos\BELunchTool\bin\Debug\net6.0-windows\Microsoft.Office.Interop.Excel.dll
-D:\Documents\GitRepos\BELunchTool\bin\Debug\net6.0-windows\ExcelLibrary.dll

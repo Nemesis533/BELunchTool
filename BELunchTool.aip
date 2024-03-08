@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT Type="Advanced Installer" CreateVersion="20.7.1" version="20.7.1" Modules="simple" RootPath="." Language="en" Id="{FFDBEB6D-5EC8-4A2D-AEBF-D58D136260C3}">
+  <COMPONENT cid="caphyon.advinst.msicomp.ProjectOptionsComponent">
+    <ROW Name="HiddenItems" Value="AppXProductDetailsComponent;AppXDependenciesComponent;AppXAppDetailsComponent;AppXVisualAssetsComponent;AppXCapabilitiesComponent;AppXAppDeclarationsComponent;AppXUriRulesComponent;FixupComponent;MsiXDiffComponent;MsixManifestEditorComponent"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
+    <ROW Property="AI_PREDEF_LCONDS_PROPS" Value="AI_DETECTED_SCREEN_RESOLUTION_X;AI_DETECTED_SCREEN_RESOLUTION_Y;AI_DETECTED_PHYSICAL_MEMORY"/>
+    <ROW Property="AI_REQUIRED_PHYSICAL_MEMORY" MultiBuildValue="DefaultBuild:8192" ValueLocId="-"/>
+    <ROW Property="AI_REQUIRED_SCREEN_RESOLUTION_X" MultiBuildValue="DefaultBuild:1920" ValueLocId="-"/>
+    <ROW Property="AI_REQUIRED_SCREEN_RESOLUTION_Y" MultiBuildValue="DefaultBuild:1080" ValueLocId="-"/>
+    <ROW Property="ALLUSERS" Value="1"/>
+    <ROW Property="ARPCOMMENTS" Value="This installer database contains the logic and data required to install [|ProductName]." ValueLocId="*"/>
+    <ROW Property="ARPNOMODIFY" MultiBuildValue="DefaultBuild:1"/>
+    <ROW Property="ARPNOREPAIR" Value="1"/>
+    <ROW Property="ARPPRODUCTICON" Value="icon.exe" Type="8"/>
+    <ROW Property="Manufacturer" Value="Bonfiglioli Engineering"/>
+    <ROW Property="ProductCode" Value="1033:{C160A3D6-82FB-47FF-8FDC-7B4445BD4E8C} " Type="16"/>
+    <ROW Property="ProductLanguage" Value="1033"/>
+    <ROW Property="ProductName" Value="BELunchTool"/>
+    <ROW Property="ProductVersion" Value="1.0.0" Options="32"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
+    <ROW Property="UpgradeCode" Value="{F7A63CD2-43D9-4597-A3AD-5C02B27B966B}"/>
+    <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsType9XDisplay" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT" MultiBuildValue="DefaultBuild:Windows Vista x86, Windows Server 2008 x86, Windows 7 x86, Windows 8 x86, Windows 8.1 x86" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40Display" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50Display" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5X" MultiBuildValue="DefaultBuild:Windows XP/2003" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5XDisplay" MultiBuildValue="DefaultBuild:Windows XP/2003" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT64" MultiBuildValue="DefaultBuild:Windows Vista x64, Windows Server 2008 x64, Windows 7 x64, Windows Server 2008 R2 x64, Windows 8 x64, Windows Server 2012 x64, Windows 8.1 x64, Windows Server 2012 R2 x64" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT64Display" MultiBuildValue="DefaultBuild:Windows Vista x64, Windows Server 2008 x64, Windows 7 x64, Windows Server 2008 R2 x64, Windows 8 x64, Windows Server 2012 x64, Windows 8.1 x64, Windows Server 2012 R2 x64" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNTDisplay" MultiBuildValue="DefaultBuild:Windows Vista x86, Windows Server 2008 x86, Windows 7 x86, Windows 8 x86, Windows 8.1 x86" ValueLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
+    <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
+    <ROW Directory="DesktopFolder" Directory_Parent="TARGETDIR" DefaultDir="DESKTO~1|DesktopFolder" IsPseudoRoot="1"/>
+    <ROW Directory="SHORTCUTDIR" Directory_Parent="TARGETDIR" DefaultDir="SHORTC~1|SHORTCUTDIR" IsPseudoRoot="1"/>
+    <ROW Directory="StartMenuFolder" Directory_Parent="TARGETDIR" DefaultDir="STARTM~1|StartMenuFolder" IsPseudoRoot="1"/>
+    <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="APPDIR" ComponentId="{21A74BE4-EA13-4630-9418-826379FC051A}" Directory_="APPDIR" Attributes="0"/>
+    <ROW Component="BELunchTool.deps.json" ComponentId="{B22C31EF-4F77-4BDC-97DC-EF79F1F1A422}" Directory_="APPDIR" Attributes="0" KeyPath="BELunchTool.deps.json" Type="0"/>
+    <ROW Component="BELunchTool.dll" ComponentId="{A7480268-1EBD-46FC-B435-AA1B255BF9A2}" Directory_="APPDIR" Attributes="0" KeyPath="BELunchTool.dll"/>
+    <ROW Component="BELunchTool.exe" ComponentId="{D3C782B4-56F7-4C63-9D34-1F5EEA05794D}" Directory_="APPDIR" Attributes="256" KeyPath="BELunchTool.exe"/>
+    <ROW Component="BEToolsClassLibrary.dll" ComponentId="{D0C2B9E1-7D10-41C6-837A-D8539E154230}" Directory_="APPDIR" Attributes="0" KeyPath="BEToolsClassLibrary.dll"/>
+    <ROW Component="BonfiglioliTools" ComponentId="{258372B5-3EE2-4FC9-8465-1D67EB990A5B}" Directory_="APPDIR" Attributes="4" KeyPath="BonfiglioliTools"/>
+    <ROW Component="CommonWinForms.dll" ComponentId="{A7521274-7929-4F32-A7F0-7090DD87E97F}" Directory_="APPDIR" Attributes="0" KeyPath="CommonWinForms.dll"/>
+    <ROW Component="CurrentDB" ComponentId="{BEDABD7E-1240-4EC7-B48F-13FFD973AAE8}" Directory_="APPDIR" Attributes="4" KeyPath="CurrentDB"/>
+    <ROW Component="CurrentDB_1" ComponentId="{84B20BC6-F08A-4B9D-AB1B-6ACD90231EE1}" Directory_="APPDIR" Attributes="4" KeyPath="CurrentDB_1"/>
+    <ROW Component="CurrentDB_2" ComponentId="{1D7F05AF-732F-43D5-8081-8AC9475502FC}" Directory_="APPDIR" Attributes="4" KeyPath="CurrentDB_2"/>
+    <ROW Component="CurrentDB_3" ComponentId="{E9D93058-F083-41B2-8438-E60909F6230D}" Directory_="APPDIR" Attributes="4" KeyPath="CurrentDB_3"/>
+    <ROW Component="CurrentDB_4" ComponentId="{E30F76DF-184A-4506-9C46-2346B2DF85BB}" Directory_="APPDIR" Attributes="4" KeyPath="CurrentDB_4"/>
+    <ROW Component="CurrentDB_5" ComponentId="{8DEE82B3-1636-4E3D-B643-9449B6D3D1B8}" Directory_="APPDIR" Attributes="4" KeyPath="CurrentDB_5"/>
+    <ROW Component="CurrentDB_6" ComponentId="{86AD152B-82D7-4179-AA2A-BE452C7CEB8E}" Directory_="APPDIR" Attributes="4" KeyPath="CurrentDB_6"/>
+    <ROW Component="CurrentDB_7" ComponentId="{9A6AFD6C-B4DC-44B7-B9E1-F9835BC21116}" Directory_="APPDIR" Attributes="4" KeyPath="CurrentDB_7"/>
+    <ROW Component="CurrentDB_8" ComponentId="{84A6A15F-BDA0-4B4D-94F4-84601A160901}" Directory_="APPDIR" Attributes="4" KeyPath="CurrentDB_8"/>
+    <ROW Component="ExcelLibrary.dll" ComponentId="{1ECC04BC-8022-42AA-B630-A1F4C5F30E36}" Directory_="APPDIR" Attributes="0" KeyPath="ExcelLibrary.dll"/>
+    <ROW Component="Microsoft.WindowsAPICodePack.Shell.dll" ComponentId="{C6E504BD-2095-47B1-9A0F-8F6E2442D222}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.WindowsAPICodePack.Shell.dll"/>
+    <ROW Component="Microsoft.WindowsAPICodePack.dll" ComponentId="{BDBE8582-E6B1-4A92-A743-10C07BF21888}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.WindowsAPICodePack.dll"/>
+    <ROW Component="MwPDMApi.dll" ComponentId="{A419CFF9-010D-453D-8D05-1F578F3B1511}" Directory_="APPDIR" Attributes="0" KeyPath="MwPDMApi.dll"/>
+    <ROW Component="MySqlConnector.dll" ComponentId="{BCE5CFBA-A318-4808-B1C6-CA24671FE8B3}" Directory_="APPDIR" Attributes="0" KeyPath="MySqlConnector.dll"/>
+    <ROW Component="Newtonsoft.Json.dll" ComponentId="{F407CA6C-4DDF-42F5-929C-48C955D777E3}" Directory_="APPDIR" Attributes="0" KeyPath="Newtonsoft.Json.dll"/>
+    <ROW Component="Path" ComponentId="{FEC5AA6E-89B7-4176-AE36-EAA3358BEB52}" Directory_="APPDIR" Attributes="4" KeyPath="Path_1"/>
+    <ROW Component="ProductInformation" ComponentId="{2D4D1E38-0C04-41DC-9EF6-59AF172556F4}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
+    <ROW Component="RtfPipe.dll" ComponentId="{407AAE85-ECCE-44C8-8C3B-EA0B1281F4F0}" Directory_="APPDIR" Attributes="0" KeyPath="RtfPipe.dll"/>
+    <ROW Component="SHORTCUTDIR" ComponentId="{D729A50F-4880-436D-9438-FAC28CBFC997}" Directory_="SHORTCUTDIR" Attributes="0"/>
+    <ROW Component="System.Data.SqlClient.dll" ComponentId="{6E4BB6E7-EDCE-46A0-A595-759C5096499A}" Directory_="APPDIR" Attributes="0" KeyPath="System.Data.SqlClient.dll"/>
+    <ROW Component="Version" ComponentId="{6C8E591E-B26F-490C-B050-7C30F311E166}" Directory_="APPDIR" Attributes="4" KeyPath="Version_1"/>
+    <ROW Component="Version_1" ComponentId="{AEEEE952-319D-4EDD-A039-161031019489}" Directory_="APPDIR" Attributes="4" KeyPath="Version_2"/>
+    <ROW Component="Version_2" ComponentId="{2114D8F8-A099-43EB-A23D-BB6231596437}" Directory_="APPDIR" Attributes="4" KeyPath="Version_3"/>
+    <ROW Component="Version_3" ComponentId="{AB6A6C2E-9CF7-488F-832F-8FBFF66EF933}" Directory_="APPDIR" Attributes="4" KeyPath="Version_4"/>
+    <ROW Component="Version_4" ComponentId="{8F3630F0-FB8B-4D6D-9802-42F6DA6D0A11}" Directory_="APPDIR" Attributes="4" KeyPath="Version_5"/>
+    <ROW Component="Version_5" ComponentId="{290027E7-0655-42A2-AE6C-FFD43D8CF132}" Directory_="APPDIR" Attributes="4" KeyPath="Version_6"/>
+    <ROW Component="Version_6" ComponentId="{8812ECF2-55D6-420A-B64E-3C7E2DA8799A}" Directory_="APPDIR" Attributes="4" KeyPath="Version_7"/>
+    <ROW Component="common_db" ComponentId="{BFFA7BA8-FB50-49D4-AA54-B05361644788}" Directory_="APPDIR" Attributes="4" KeyPath="common_db"/>
+    <ROW Component="common_db_1" ComponentId="{D0F15DB4-8741-40A5-A951-C78D2241FAF7}" Directory_="APPDIR" Attributes="4" KeyPath="common_db_1"/>
+    <ROW Component="db_p" ComponentId="{B541D201-AB83-4A18-9533-A57CA85F3F5A}" Directory_="APPDIR" Attributes="4" KeyPath="db_p"/>
+    <ROW Component="db_p_1" ComponentId="{F7DD5F80-F8F5-4D91-AECB-6FBD7862B82C}" Directory_="APPDIR" Attributes="4" KeyPath="db_p_1"/>
+    <ROW Component="db_u" ComponentId="{DB61C104-ABF4-4E95-9F61-0DF355E8A6B9}" Directory_="APPDIR" Attributes="4" KeyPath="db_u"/>
+    <ROW Component="db_u_1" ComponentId="{B5186108-F36A-471F-ACE1-AA81F1D6AC10}" Directory_="APPDIR" Attributes="4" KeyPath="db_u_1"/>
+    <ROW Component="dbw_p" ComponentId="{11D03E63-944C-477D-BB06-20FC7814D9D6}" Directory_="APPDIR" Attributes="4" KeyPath="dbw_p"/>
+    <ROW Component="dbw_p_1" ComponentId="{F8BB95D3-42BC-4311-AE9C-499F6959AD89}" Directory_="APPDIR" Attributes="4" KeyPath="dbw_p_1"/>
+    <ROW Component="dbw_server" ComponentId="{65FA81F7-3738-45E3-AD8A-39C88840D616}" Directory_="APPDIR" Attributes="4" KeyPath="dbw_server"/>
+    <ROW Component="dbw_server_1" ComponentId="{D2F2B178-488E-407D-80FD-02EBF56FE179}" Directory_="APPDIR" Attributes="4" KeyPath="dbw_server_1"/>
+    <ROW Component="dbw_server_ip" ComponentId="{3011AD05-2542-45C6-B997-830F96DCC323}" Directory_="APPDIR" Attributes="4" KeyPath="dbw_server_ip"/>
+    <ROW Component="dbw_u" ComponentId="{B440A9C9-15AC-407A-9BDE-A1FC67ED7538}" Directory_="APPDIR" Attributes="4" KeyPath="dbw_u"/>
+    <ROW Component="dbw_u_1" ComponentId="{937EDE7D-1F20-4BB3-B304-A71E0A71859E}" Directory_="APPDIR" Attributes="4" KeyPath="dbw_u_1"/>
+    <ROW Component="evo_p" ComponentId="{11D0E5C5-D579-4760-9BBE-C022143A4AC2}" Directory_="APPDIR" Attributes="4" KeyPath="evo_p"/>
+    <ROW Component="evo_p_1" ComponentId="{0EB88A7E-AD81-480B-9404-94A1A2FB99C0}" Directory_="APPDIR" Attributes="4" KeyPath="evo_p_1"/>
+    <ROW Component="evo_u" ComponentId="{2FB6EE8E-BDEC-48B0-86F7-B29CE53C2A99}" Directory_="APPDIR" Attributes="4" KeyPath="evo_u"/>
+    <ROW Component="evo_u_1" ComponentId="{949A60EC-7D49-473A-981B-2B67A784365E}" Directory_="APPDIR" Attributes="4" KeyPath="evo_u_1"/>
+    <ROW Component="evotry_server" ComponentId="{0FC36CF7-5733-4E46-A8A0-DA4720626EC3}" Directory_="APPDIR" Attributes="4" KeyPath="evotry_server"/>
+    <ROW Component="evotry_server_1" ComponentId="{0877C45C-8806-47AC-85B3-6F22DE84163F}" Directory_="APPDIR" Attributes="4" KeyPath="evotry_server_1"/>
+    <ROW Component="evotry_server_ip" ComponentId="{275C8210-BCBF-4811-8E49-0479F88E81D0}" Directory_="APPDIR" Attributes="4" KeyPath="evotry_server_ip"/>
+    <ROW Component="mysql_server" ComponentId="{0EE1402E-8F2B-4A14-9A2A-C84D6B95759C}" Directory_="APPDIR" Attributes="4" KeyPath="mysql_server"/>
+    <ROW Component="mysql_server_1" ComponentId="{B11EE266-A217-4796-A089-87279B3CCDF3}" Directory_="APPDIR" Attributes="4" KeyPath="mysql_server_1"/>
+    <ROW Component="mysql_server_ip" ComponentId="{152F68FB-DDB4-4EC8-B1F7-F093441B7E44}" Directory_="APPDIR" Attributes="4" KeyPath="mysql_server_ip"/>
+    <ROW Component="mysql_server_ip_1" ComponentId="{4C973DD8-2886-4293-9803-26D318D0E787}" Directory_="APPDIR" Attributes="4" KeyPath="mysql_server_ip_1"/>
+    <ROW Component="sam_p" ComponentId="{E2A1EE59-F58C-42BC-9803-71FAEA8A1783}" Directory_="APPDIR" Attributes="4" KeyPath="sam_p"/>
+    <ROW Component="sam_p_1" ComponentId="{7B752FA9-77E5-4CB1-BB06-D71373FA8563}" Directory_="APPDIR" Attributes="4" KeyPath="sam_p_1"/>
+    <ROW Component="sam_server" ComponentId="{FE28C4B8-4886-4682-ADE1-8DD8A26B823B}" Directory_="APPDIR" Attributes="4" KeyPath="sam_server"/>
+    <ROW Component="sam_server_1" ComponentId="{CD13082B-0909-4C19-87C7-D51902C81E9B}" Directory_="APPDIR" Attributes="4" KeyPath="sam_server_1"/>
+    <ROW Component="sam_server_ip" ComponentId="{1B83A864-C4D5-4C31-99CA-4C9FCE6FDE52}" Directory_="APPDIR" Attributes="4" KeyPath="sam_server_ip"/>
+    <ROW Component="sam_u" ComponentId="{C5D4B84E-7B0E-4041-8EB5-F8547AF85B69}" Directory_="APPDIR" Attributes="4" KeyPath="sam_u"/>
+    <ROW Component="sam_u_1" ComponentId="{8FF469EC-427D-4D6F-8CF6-1F61B3D391DD}" Directory_="APPDIR" Attributes="4" KeyPath="sam_u_1"/>
+    <ROW Component="version" ComponentId="{F87336D1-11CE-4EE6-96CE-A02CD4A04512}" Directory_="APPDIR" Attributes="4" KeyPath="version"/>
+    <ROW Component="version_1" ComponentId="{A918D94A-586D-4A63-A5C9-0931CE691478}" Directory_="APPDIR" Attributes="4" KeyPath="version_1"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0"/>
+    <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="BELunchTool.deps.json" Component_="BELunchTool.deps.json" FileName="BELUNC~1.JSO|BELunchTool.deps.json" Attributes="0" SourcePath="bin\Debug\net6.0-windows\BELunchTool.deps.json" SelfReg="false"/>
+    <ROW File="BELunchTool.dll" Component_="BELunchTool.dll" FileName="BELUNC~1.DLL|BELunchTool.dll" Attributes="0" SourcePath="bin\Debug\net6.0-windows\BELunchTool.dll" SelfReg="false"/>
+    <ROW File="BELunchTool.exe" Component_="BELunchTool.exe" FileName="BELUNC~1.EXE|BELunchTool.exe" Attributes="0" SourcePath="bin\Debug\net6.0-windows\BELunchTool.exe" SelfReg="false" DigSign="true"/>
+    <ROW File="BELunchTool.pdb" Component_="BELunchTool.exe" FileName="BELUNC~1.PDB|BELunchTool.pdb" Attributes="0" SourcePath="bin\Debug\net6.0-windows\BELunchTool.pdb" SelfReg="false"/>
+    <ROW File="BELunchTool.runtimeconfig.json" Component_="BELunchTool.deps.json" FileName="BELUNC~2.JSO|BELunchTool.runtimeconfig.json" Attributes="0" SourcePath="bin\Debug\net6.0-windows\BELunchTool.runtimeconfig.json" SelfReg="false"/>
+    <ROW File="BEToolsClassLibrary.dll" Component_="BEToolsClassLibrary.dll" FileName="BETOOL~1.DLL|BEToolsClassLibrary.dll" Attributes="0" SourcePath="..\BonfiglioliInternalTools\CommonLibsAndObjects\DLL\CommonWinForms\bin\Debug\net6.0-windows\BEToolsClassLibrary.dll" SelfReg="false"/>
+    <ROW File="BEToolsClassLibrary.dll.config" Component_="BELunchTool.deps.json" FileName="BETOOL~1.CON|BEToolsClassLibrary.dll.config" Attributes="0" SourcePath="bin\Debug\net6.0-windows\BEToolsClassLibrary.dll.config" SelfReg="false"/>
+    <ROW File="BEToolsClassLibrary.pdb" Component_="BEToolsClassLibrary.dll" FileName="BETOOL~1.PDB|BEToolsClassLibrary.pdb" Attributes="0" SourcePath="bin\Debug\net6.0-windows\BEToolsClassLibrary.pdb" SelfReg="false"/>
+    <ROW File="CommonWinForms.dll" Component_="CommonWinForms.dll" FileName="COMMON~1.DLL|CommonWinForms.dll" Attributes="0" SourcePath="bin\Debug\net6.0-windows\CommonWinForms.dll" SelfReg="false"/>
+    <ROW File="CommonWinForms.pdb" Component_="CommonWinForms.dll" FileName="COMMON~1.PDB|CommonWinForms.pdb" Attributes="0" SourcePath="bin\Debug\net6.0-windows\CommonWinForms.pdb" SelfReg="false"/>
+    <ROW File="ExcelLibrary.dll" Component_="ExcelLibrary.dll" FileName="EXCELL~1.DLL|ExcelLibrary.dll" Attributes="0" SourcePath="bin\Debug\net6.0-windows\ExcelLibrary.dll" SelfReg="false"/>
+    <ROW File="Microsoft.WindowsAPICodePack.dll" Component_="Microsoft.WindowsAPICodePack.dll" FileName="MICROS~2.DLL|Microsoft.WindowsAPICodePack.dll" Attributes="0" SourcePath="bin\Debug\net6.0-windows\Microsoft.WindowsAPICodePack.dll" SelfReg="false"/>
+    <ROW File="Microsoft.WindowsAPICodePack.Shell.dll" Component_="Microsoft.WindowsAPICodePack.Shell.dll" FileName="MICROS~3.DLL|Microsoft.WindowsAPICodePack.Shell.dll" Attributes="0" SourcePath="bin\Debug\net6.0-windows\Microsoft.WindowsAPICodePack.Shell.dll" SelfReg="false"/>
+    <ROW File="Microsoft.WindowsAPICodePack.Shell.xml" Component_="BELunchTool.deps.json" FileName="MICROS~1.XML|Microsoft.WindowsAPICodePack.Shell.xml" Attributes="0" SourcePath="bin\Debug\net6.0-windows\Microsoft.WindowsAPICodePack.Shell.xml" SelfReg="false"/>
+    <ROW File="Microsoft.WindowsAPICodePack.xml" Component_="BELunchTool.deps.json" FileName="MICROS~2.XML|Microsoft.WindowsAPICodePack.xml" Attributes="0" SourcePath="bin\Debug\net6.0-windows\Microsoft.WindowsAPICodePack.xml" SelfReg="false"/>
+    <ROW File="MwPDMApi.dll" Component_="MwPDMApi.dll" FileName="MwPDMApi.dll" Attributes="0" SourcePath="bin\Debug\net6.0-windows\MwPDMApi.dll" SelfReg="false"/>
+    <ROW File="MySqlConnector.dll" Component_="MySqlConnector.dll" FileName="MYSQLC~1.DLL|MySqlConnector.dll" Attributes="0" SourcePath="bin\Debug\net6.0-windows\MySqlConnector.dll" SelfReg="false"/>
+    <ROW File="MySqlConnector.xml" Component_="BELunchTool.deps.json" FileName="MYSQLC~1.XML|MySqlConnector.xml" Attributes="0" SourcePath="bin\Debug\net6.0-windows\MySqlConnector.xml" SelfReg="false"/>
+    <ROW File="Newtonsoft.Json.dll" Component_="Newtonsoft.Json.dll" FileName="NEWTON~1.DLL|Newtonsoft.Json.dll" Attributes="0" SourcePath="bin\Debug\net6.0-windows\Newtonsoft.Json.dll" SelfReg="false"/>
+    <ROW File="Newtonsoft.Json.xml" Component_="BELunchTool.deps.json" FileName="NEWTON~1.XML|Newtonsoft.Json.xml" Attributes="0" SourcePath="bin\Debug\net6.0-windows\Newtonsoft.Json.xml" SelfReg="false"/>
+    <ROW File="RtfPipe.dll" Component_="RtfPipe.dll" FileName="RtfPipe.dll" Attributes="0" SourcePath="bin\Debug\net6.0-windows\RtfPipe.dll" SelfReg="false"/>
+    <ROW File="System.Data.SqlClient.dll" Component_="System.Data.SqlClient.dll" FileName="SYSTEM~1.DLL|System.Data.SqlClient.dll" Attributes="0" SourcePath="bin\Debug\net6.0-windows\System.Data.SqlClient.dll" SelfReg="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
+    <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BootstrapperUISequenceComponent">
+    <ROW Action="AI_DetectSoftware" Sequence="151"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" Languages="en" InstallationType="4" UseLargeSchema="true"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
+    <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
+    <ROW Path="&lt;AI_DICTS&gt;ui_en.ail"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.FragmentComponent">
+    <ROW Fragment="CommonUI.aip" Path="&lt;AI_FRAGS&gt;CommonUI.aip"/>
+    <ROW Fragment="FolderDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\FolderDlg.aip"/>
+    <ROW Fragment="MaintenanceTypeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\MaintenanceTypeDlg.aip"/>
+    <ROW Fragment="MaintenanceWelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\MaintenanceWelcomeDlg.aip"/>
+    <ROW Fragment="SequenceDialogs.aip" Path="&lt;AI_THEMES&gt;classic\fragments\SequenceDialogs.aip"/>
+    <ROW Fragment="Sequences.aip" Path="&lt;AI_FRAGS&gt;Sequences.aip"/>
+    <ROW Fragment="StaticUIStrings.aip" Path="&lt;AI_FRAGS&gt;StaticUIStrings.aip"/>
+    <ROW Fragment="Themes.aip" Path="&lt;AI_FRAGS&gt;Themes.aip"/>
+    <ROW Fragment="UI.aip" Path="&lt;AI_THEMES&gt;classic\fragments\UI.aip"/>
+    <ROW Fragment="Validation.aip" Path="&lt;AI_FRAGS&gt;Validation.aip"/>
+    <ROW Fragment="VerifyRemoveDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\VerifyRemoveDlg.aip"/>
+    <ROW Fragment="VerifyRepairDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\VerifyRepairDlg.aip"/>
+    <ROW Fragment="WelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\WelcomeDlg.aip"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="SoftwareDetector.dll" SourcePath="&lt;AI_CUSTACTS&gt;SoftwareDetector.dll"/>
+    <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="FolderDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="FolderDlg" Control_="Back" Event="NewDialog" Argument="WelcomeDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control_="Next" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="99"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_MAINT" Ordering="198"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="202"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_INSTALL" Ordering="197"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_MAINT" Ordering="101"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="ChangeButton" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="501"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceWelcomeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RemoveButton" Event="NewDialog" Argument="VerifyRemoveDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="601"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RepairButton" Event="NewDialog" Argument="VerifyRepairDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="601"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="1"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Repair" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="399" Options="1"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Remove" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="299" Options="1"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_PATCH" Ordering="201"/>
+    <ROW Dialog_="ResumeDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_RESUME" Ordering="299"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_PATCH" Ordering="199"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="PatchWelcomeDlg" Condition="AI_PATCH" Ordering="203"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
+    <ROW Directory_="APPDIR" Component_="APPDIR" ManualDelete="true"/>
+    <ROW Directory_="SHORTCUTDIR" Component_="SHORTCUTDIR" ManualDelete="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
+    <ROW Action="AI_DetectSoftware" Type="257" Source="SoftwareDetector.dll" Target="OnDetectSoftware"/>
+    <ROW Action="AI_DpiContentScale" Type="1" Source="aicustact.dll" Target="DpiContentScale"/>
+    <ROW Action="AI_EnableDebugLog" Type="321" Source="aicustact.dll" Target="EnableDebugLog"/>
+    <ROW Action="AI_InstallModeCheck" Type="1" Source="aicustact.dll" Target="UpdateInstallMode" WithoutSeq="true"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
+    <ROW Action="AI_PRESERVE_INSTALL_TYPE" Type="65" Source="aicustact.dll" Target="PreserveInstallType"/>
+    <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
+    <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
+    <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
+    <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
+    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
+    <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatCompsComponent">
+    <ROW Feature_="MainFeature" Component_="APPDIR"/>
+    <ROW Feature_="MainFeature" Component_="ProductInformation"/>
+    <ROW Feature_="MainFeature" Component_="BonfiglioliTools"/>
+    <ROW Feature_="MainFeature" Component_="CurrentDB"/>
+    <ROW Feature_="MainFeature" Component_="Version"/>
+    <ROW Feature_="MainFeature" Component_="CurrentDB_1"/>
+    <ROW Feature_="MainFeature" Component_="Version_1"/>
+    <ROW Feature_="MainFeature" Component_="CurrentDB_2"/>
+    <ROW Feature_="MainFeature" Component_="Path"/>
+    <ROW Feature_="MainFeature" Component_="Version_2"/>
+    <ROW Feature_="MainFeature" Component_="db_p"/>
+    <ROW Feature_="MainFeature" Component_="dbw_server"/>
+    <ROW Feature_="MainFeature" Component_="common_db"/>
+    <ROW Feature_="MainFeature" Component_="db_u"/>
+    <ROW Feature_="MainFeature" Component_="dbw_p"/>
+    <ROW Feature_="MainFeature" Component_="sam_u"/>
+    <ROW Feature_="MainFeature" Component_="dbw_u"/>
+    <ROW Feature_="MainFeature" Component_="evo_p"/>
+    <ROW Feature_="MainFeature" Component_="evo_u"/>
+    <ROW Feature_="MainFeature" Component_="evotry_server"/>
+    <ROW Feature_="MainFeature" Component_="mysql_server"/>
+    <ROW Feature_="MainFeature" Component_="mysql_server_ip"/>
+    <ROW Feature_="MainFeature" Component_="sam_p"/>
+    <ROW Feature_="MainFeature" Component_="sam_server"/>
+    <ROW Feature_="MainFeature" Component_="version"/>
+    <ROW Feature_="MainFeature" Component_="CurrentDB_3"/>
+    <ROW Feature_="MainFeature" Component_="CurrentDB_4"/>
+    <ROW Feature_="MainFeature" Component_="Version_3"/>
+    <ROW Feature_="MainFeature" Component_="CurrentDB_5"/>
+    <ROW Feature_="MainFeature" Component_="Version_4"/>
+    <ROW Feature_="MainFeature" Component_="version_1"/>
+    <ROW Feature_="MainFeature" Component_="CurrentDB_6"/>
+    <ROW Feature_="MainFeature" Component_="CurrentDB_7"/>
+    <ROW Feature_="MainFeature" Component_="Version_5"/>
+    <ROW Feature_="MainFeature" Component_="CurrentDB_8"/>
+    <ROW Feature_="MainFeature" Component_="Version_6"/>
+    <ROW Feature_="MainFeature" Component_="db_u_1"/>
+    <ROW Feature_="MainFeature" Component_="common_db_1"/>
+    <ROW Feature_="MainFeature" Component_="db_p_1"/>
+    <ROW Feature_="MainFeature" Component_="dbw_p_1"/>
+    <ROW Feature_="MainFeature" Component_="dbw_server_1"/>
+    <ROW Feature_="MainFeature" Component_="evo_p_1"/>
+    <ROW Feature_="MainFeature" Component_="sam_server_ip"/>
+    <ROW Feature_="MainFeature" Component_="dbw_u_1"/>
+    <ROW Feature_="MainFeature" Component_="sam_u_1"/>
+    <ROW Feature_="MainFeature" Component_="dbw_server_ip"/>
+    <ROW Feature_="MainFeature" Component_="evo_u_1"/>
+    <ROW Feature_="MainFeature" Component_="evotry_server_1"/>
+    <ROW Feature_="MainFeature" Component_="evotry_server_ip"/>
+    <ROW Feature_="MainFeature" Component_="mysql_server_1"/>
+    <ROW Feature_="MainFeature" Component_="mysql_server_ip_1"/>
+    <ROW Feature_="MainFeature" Component_="sam_p_1"/>
+    <ROW Feature_="MainFeature" Component_="sam_server_1"/>
+    <ROW Feature_="MainFeature" Component_="BELunchTool.deps.json"/>
+    <ROW Feature_="MainFeature" Component_="BELunchTool.dll"/>
+    <ROW Feature_="MainFeature" Component_="BELunchTool.exe"/>
+    <ROW Feature_="MainFeature" Component_="BEToolsClassLibrary.dll"/>
+    <ROW Feature_="MainFeature" Component_="CommonWinForms.dll"/>
+    <ROW Feature_="MainFeature" Component_="ExcelLibrary.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.WindowsAPICodePack.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.WindowsAPICodePack.Shell.dll"/>
+    <ROW Feature_="MainFeature" Component_="MwPDMApi.dll"/>
+    <ROW Feature_="MainFeature" Component_="MySqlConnector.dll"/>
+    <ROW Feature_="MainFeature" Component_="Newtonsoft.Json.dll"/>
+    <ROW Feature_="MainFeature" Component_="RtfPipe.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Data.SqlClient.dll"/>
+    <ROW Feature_="MainFeature" Component_="SHORTCUTDIR"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
+    <ROW Name="icon.exe" SourcePath="bin\Resources\icon.ico" Index="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
+    <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_STORE_LOCATION" Condition="(Not Installed) OR REINSTALL" Sequence="1501"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1399"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+    <ROW Action="AI_DetectSoftware" Sequence="101"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
+    <ROW Action="AI_PRESERVE_INSTALL_TYPE" Sequence="199"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="53"/>
+    <ROW Action="AI_DpiContentScale" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+    <ROW Action="AI_DetectSoftware" Sequence="101"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
+    <ROW Condition="( Version9X OR ( NOT VersionNT64 ) OR ( VersionNT64 AND ((VersionNT64 &lt;&gt; 600) OR (MsiNTProductType &lt;&gt; 1)) AND ((VersionNT64 &lt;&gt; 600) OR (MsiNTProductType = 1)) AND ((VersionNT64 &lt;&gt; 601) OR (MsiNTProductType &lt;&gt; 1)) AND ((VersionNT64 &lt;&gt; 601) OR (MsiNTProductType = 1)) AND ((VersionNT64 &lt;&gt; 602) OR (MsiNTProductType &lt;&gt; 1)) AND ((VersionNT64 &lt;&gt; 602) OR (MsiNTProductType = 1)) AND ((VersionNT64 &lt;&gt; 603) OR (MsiNTProductType &lt;&gt; 1)) AND ((VersionNT64 &lt;&gt; 603) OR (MsiNTProductType = 1)) ) )" Description="[ProductName] cannot be installed on the following Windows versions: [WindowsTypeNT64Display]." DescriptionLocId="AI.LaunchCondition.NoSpecificNT64" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="( Version9X OR VersionNT64 OR ( VersionNT AND ((VersionNT &lt;&gt; 600) OR (MsiNTProductType &lt;&gt; 1)) AND ((VersionNT &lt;&gt; 600) OR (MsiNTProductType = 1)) AND (VersionNT &lt;&gt; 601) AND (VersionNT &lt;&gt; 602) AND (VersionNT &lt;&gt; 603) ) )" Description="[ProductName] cannot be installed on the following Windows versions: [WindowsTypeNTDisplay]." DescriptionLocId="AI.LaunchCondition.NoSpecificNT" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="((VersionNT &lt;&gt; 501) AND (VersionNT &lt;&gt; 502))" Description="[ProductName] cannot be installed on [WindowsTypeNT5XDisplay]." DescriptionLocId="AI.LaunchCondition.NoNT5X" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(AI_DETECTED_SCREEN_RESOLUTION_X &gt;= AI_REQUIRED_SCREEN_RESOLUTION_X) AND (AI_DETECTED_SCREEN_RESOLUTION_Y &gt;= AI_REQUIRED_SCREEN_RESOLUTION_Y)" Description="[ProductName] cannot be installed on systems with screen resolution smaller than [AI_REQUIRED_SCREEN_RESOLUTION_X] x [AI_REQUIRED_SCREEN_RESOLUTION_Y]." DescriptionLocId="AI.LaunchCondition.Resolution" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT &lt;&gt; 400)" Description="[ProductName] cannot be installed on [WindowsTypeNT40Display]." DescriptionLocId="AI.LaunchCondition.NoNT40" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT &lt;&gt; 500)" Description="[ProductName] cannot be installed on [WindowsTypeNT50Display]." DescriptionLocId="AI.LaunchCondition.NoNT50" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="AI_DETECTED_PHYSICAL_MEMORY &gt;= AI_REQUIRED_PHYSICAL_MEMORY" Description="[ProductName] cannot be installed on systems with less physical memory than [AI_REQUIRED_PHYSICAL_MEMORY] MB." DescriptionLocId="AI.LaunchCondition.RAM" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="VersionNT" Description="[ProductName] cannot be installed on [WindowsType9XDisplay]." DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegsComponent">
+    <ROW Registry="BEConfApp" Root="2" Key="SOFTWARE\BonfiglioliTools\BEConfApp" Name="\"/>
+    <ROW Registry="BEConfApp_1" Root="2" Key="SOFTWARE\WOW6432Node\BonfiglioliTools\BEConfApp" Name="\"/>
+    <ROW Registry="BELunchTool" Root="2" Key="SOFTWARE\BonfiglioliTools\BELunchTool" Name="\"/>
+    <ROW Registry="BELunchTool_1" Root="2" Key="SOFTWARE\WOW6432Node\BonfiglioliTools\BELunchTool" Name="\"/>
+    <ROW Registry="BonfiglioliTools" Root="2" Key="SOFTWARE\BonfiglioliTools" Name="+" Component_="BonfiglioliTools"/>
+    <ROW Registry="BonfiglioliTools_1" Root="2" Key="SOFTWARE\WOW6432Node\BonfiglioliTools" Name="\"/>
+    <ROW Registry="CalibrateLeakApp" Root="2" Key="SOFTWARE\BonfiglioliTools\Calibrate Leak App" Name="\"/>
+    <ROW Registry="CalibratedLeakerApp" Root="2" Key="SOFTWARE\BonfiglioliTools\CalibratedLeakerApp" Name="\"/>
+    <ROW Registry="CalibratedLeakerApp_1" Root="2" Key="SOFTWARE\WOW6432Node\BonfiglioliTools\CalibratedLeakerApp" Name="\"/>
+    <ROW Registry="Common" Root="2" Key="SOFTWARE\BonfiglioliTools\Common" Name="\"/>
+    <ROW Registry="Common_1" Root="2" Key="SOFTWARE\WOW6432Node\BonfiglioliTools\Common" Name="\"/>
+    <ROW Registry="CurrentDB" Root="2" Key="SOFTWARE\BonfiglioliTools\BEConfApp" Name="CurrentDB" Value="offer_db_dev" Component_="CurrentDB"/>
+    <ROW Registry="CurrentDB_1" Root="2" Key="SOFTWARE\BonfiglioliTools\BELunchTool" Name="CurrentDB" Value="be_lunch_tool" Component_="CurrentDB_1"/>
+    <ROW Registry="CurrentDB_2" Root="2" Key="SOFTWARE\BonfiglioliTools\Calibrate Leak App" Name="CurrentDB" Value="calibrated_leaker" Component_="CurrentDB_2"/>
+    <ROW Registry="CurrentDB_3" Root="2" Key="SOFTWARE\BonfiglioliTools\JobBudgetApp" Name="CurrentDB" Value="job_budget_db" Component_="CurrentDB_3"/>
+    <ROW Registry="CurrentDB_4" Root="2" Key="SOFTWARE\BonfiglioliTools\CalibratedLeakerApp" Name="CurrentDB" Value="calibrated_leaker" Component_="CurrentDB_4"/>
+    <ROW Registry="CurrentDB_5" Root="2" Key="SOFTWARE\WOW6432Node\BonfiglioliTools\BEConfApp" Name="CurrentDB" Value="offer_db_dev" Component_="CurrentDB_5"/>
+    <ROW Registry="CurrentDB_6" Root="2" Key="SOFTWARE\WOW6432Node\BonfiglioliTools\JobBudgetApp" Name="CurrentDB" Value="job_budget_db" Component_="CurrentDB_6"/>
+    <ROW Registry="CurrentDB_7" Root="2" Key="SOFTWARE\WOW6432Node\BonfiglioliTools\BELunchTool" Name="CurrentDB" Value="be_lunch_tool" Component_="CurrentDB_7"/>
+    <ROW Registry="CurrentDB_8" Root="2" Key="SOFTWARE\WOW6432Node\BonfiglioliTools\CalibratedLeakerApp" Name="CurrentDB" Value="calibrated_leaker" Component_="CurrentDB_8"/>
+    <ROW Registry="JobBudgetApp" Root="2" Key="SOFTWARE\BonfiglioliTools\JobBudgetApp" Name="\"/>
+    <ROW Registry="JobBudgetApp_1" Root="2" Key="SOFTWARE\WOW6432Node\BonfiglioliTools\JobBudgetApp" Name="\"/>
+    <ROW Registry="Manufacturer" Root="-1" Key="Software\[Manufacturer]" Name="\"/>
+    <ROW Registry="Path" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Path" Value="[APPDIR]" Component_="ProductInformation"/>
+    <ROW Registry="Path_1" Root="2" Key="SOFTWARE\BonfiglioliTools\Calibrate Leak App" Name="Path" Value="[ProgramFilesFolder]BonfiglioliTools\Calibrate Leak App\" Component_="Path"/>
+    <ROW Registry="ProductName" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="\"/>
+    <ROW Registry="SOFTWARE" Root="2" Key="SOFTWARE" Name="\"/>
+    <ROW Registry="Software" Root="-1" Key="Software" Name="\"/>
+    <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
+    <ROW Registry="Version_1" Root="2" Key="SOFTWARE\BonfiglioliTools\BEConfApp" Name="Version" Value="1.6.3 Bugfix 6" Component_="Version"/>
+    <ROW Registry="Version_2" Root="2" Key="SOFTWARE\BonfiglioliTools\BELunchTool" Name="Version" Value="1.0" Component_="Version_1"/>
+    <ROW Registry="Version_3" Root="2" Key="SOFTWARE\BonfiglioliTools\Calibrate Leak App" Name="Version" Value="1.0.0" Component_="Version_2"/>
+    <ROW Registry="Version_4" Root="2" Key="SOFTWARE\BonfiglioliTools\CalibratedLeakerApp" Name="Version" Value="1.0.0" Component_="Version_3"/>
+    <ROW Registry="Version_5" Root="2" Key="SOFTWARE\WOW6432Node\BonfiglioliTools\BEConfApp" Name="Version" Value="1.6.3 Bugfix 6" Component_="Version_4"/>
+    <ROW Registry="Version_6" Root="2" Key="SOFTWARE\WOW6432Node\BonfiglioliTools\BELunchTool" Name="Version" Value="1.0" Component_="Version_5"/>
+    <ROW Registry="Version_7" Root="2" Key="SOFTWARE\WOW6432Node\BonfiglioliTools\CalibratedLeakerApp" Name="Version" Value="1.0.0" Component_="Version_6"/>
+    <ROW Registry="WOW6432Node" Root="2" Key="SOFTWARE\WOW6432Node" Name="\"/>
+    <ROW Registry="common_db" Root="2" Key="SOFTWARE\BonfiglioliTools\Common" Name="common_db" Value="J8ZtP9lnFQHYgs2Fwc0azsv8DK4GiQ26yu2iFV0wz7o=" Component_="common_db"/>
+    <ROW Registry="common_db_1" Root="2" Key="SOFTWARE\WOW6432Node\BonfiglioliTools\Common" Name="common_db" Value="J8ZtP9lnFQHYgs2Fwc0azsv8DK4GiQ26yu2iFV0wz7o=" Component_="common_db_1"/>
+    <ROW Registry="db_p" Root="2" Key="SOFTWARE\BonfiglioliTools\Common" Name="db_p" Value="0TyN+tFPNKttsM3u5mPClQ==" Component_="db_p"/>
+    <ROW Registry="db_p_1" Root="2" Key="SOFTWARE\WOW6432Node\BonfiglioliTools\Common" Name="db_p" Value="0TyN+tFPNKttsM3u5mPClQ==" Component_="db_p_1"/>
+    <ROW Registry="db_u" Root="2" Key="SOFTWARE\BonfiglioliTools\Common" Name="db_u" Value="/TvU2YyRU9L1Mbl0R2FNYA==" Component_="db_u"/>
+    <ROW Registry="db_u_1" Root="2" Key="SOFTWARE\WOW6432Node\BonfiglioliTools\Common" Name="db_u" Value="/TvU2YyRU9L1Mbl0R2FNYA==" Component_="db_u_1"/>
+    <ROW Registry="dbw_p" Root="2" Key="SOFTWARE\BonfiglioliTools\Common" Name="dbw_p" Value="3Jv5/zzcr5Noi9+fb+KXfg==" Component_="dbw_p"/>
+    <ROW Registry="dbw_p_1" Root="2" Key="SOFTWARE\WOW6432Node\BonfiglioliTools\Common" Name="dbw_p" Value="3Jv5/zzcr5Noi9+fb+KXfg==" Component_="dbw_p_1"/>
+    <ROW Registry="dbw_server" Root="2" Key="SOFTWARE\BonfiglioliTools\Common" Name="dbw_server" Value="sOGRCJc9YgJF9XDpAcGtuA==" Component_="dbw_server"/>
+    <ROW Registry="dbw_server_1" Root="2" Key="SOFTWARE\WOW6432Node\BonfiglioliTools\Common" Name="dbw_server" Value="sOGRCJc9YgJF9XDpAcGtuA==" Component_="dbw_server_1"/>
+    <ROW Registry="dbw_server_ip" Root="2" Key="SOFTWARE\WOW6432Node\BonfiglioliTools\Common" Name="dbw_server_ip" Component_="dbw_server_ip"/>
+    <ROW Registry="dbw_u" Root="2" Key="SOFTWARE\BonfiglioliTools\Common" Name="dbw_u" Value="MF/tdjx/lg9Kdsi/PBf8FA==" Component_="dbw_u"/>
+    <ROW Registry="dbw_u_1" Root="2" Key="SOFTWARE\WOW6432Node\BonfiglioliTools\Common" Name="dbw_u" Value="MF/tdjx/lg9Kdsi/PBf8FA==" Component_="dbw_u_1"/>
+    <ROW Registry="evo_p" Root="2" Key="SOFTWARE\BonfiglioliTools\Common" Name="evo_p" Value="7Ba7tGx2RhdjqCkFaJTfmg==" Component_="evo_p"/>
+    <ROW Registry="evo_p_1" Root="2" Key="SOFTWARE\WOW6432Node\BonfiglioliTools\Common" Name="evo_p" Value="7Ba7tGx2RhdjqCkFaJTfmg==" Component_="evo_p_1"/>
+    <ROW Registry="evo_u" Root="2" Key="SOFTWARE\BonfiglioliTools\Common" Name="evo_u" Value="MfKWtVN7oiWQcnIOe5B+9A==" Component_="evo_u"/>
+    <ROW Registry="evo_u_1" Root="2" Key="SOFTWARE\WOW6432Node\BonfiglioliTools\Common" Name="evo_u" Value="MfKWtVN7oiWQcnIOe5B+9A==" Component_="evo_u_1"/>
+    <ROW Registry="evotry_server" Root="2" Key="SOFTWARE\BonfiglioliTools\Common" Name="evotry_server" Value="IHhp3quMHFXyTBgnJ66uQm1Giaw5/J3YFJ+u4/+SH28=" Component_="evotry_server"/>
+    <ROW Registry="evotry_server_1" Root="2" Key="SOFTWARE\WOW6432Node\BonfiglioliTools\Common" Name="evotry_server" Value="IHhp3quMHFXyTBgnJ66uQm1Giaw5/J3YFJ+u4/+SH28=" Component_="evotry_server_1"/>
+    <ROW Registry="evotry_server_ip" Root="2" Key="SOFTWARE\WOW6432Node\BonfiglioliTools\Common" Name="evotry_server_ip" Component_="evotry_server_ip"/>
+    <ROW Registry="mysql_server" Root="2" Key="SOFTWARE\BonfiglioliTools\Common" Name="mysql_server" Value="G/esVZWH0naveMxe2Q7C7g==" Component_="mysql_server"/>
+    <ROW Registry="mysql_server_1" Root="2" Key="SOFTWARE\WOW6432Node\BonfiglioliTools\Common" Name="mysql_server" Value="G/esVZWH0naveMxe2Q7C7g==" Component_="mysql_server_1"/>
+    <ROW Registry="mysql_server_ip" Root="2" Key="SOFTWARE\BonfiglioliTools\Common" Name="mysql_server_ip" Value="XURx63skBtka2ESMdyq50A==" Component_="mysql_server_ip"/>
+    <ROW Registry="mysql_server_ip_1" Root="2" Key="SOFTWARE\WOW6432Node\BonfiglioliTools\Common" Name="mysql_server_ip" Value="XURx63skBtka2ESMdyq50A==" Component_="mysql_server_ip_1"/>
+    <ROW Registry="sam_p" Root="2" Key="SOFTWARE\BonfiglioliTools\Common" Name="sam_p" Value="3Jv5/zzcr5Noi9+fb+KXfg==" Component_="sam_p"/>
+    <ROW Registry="sam_p_1" Root="2" Key="SOFTWARE\WOW6432Node\BonfiglioliTools\Common" Name="sam_p" Value="3Jv5/zzcr5Noi9+fb+KXfg==" Component_="sam_p_1"/>
+    <ROW Registry="sam_server" Root="2" Key="SOFTWARE\BonfiglioliTools\Common" Name="sam_server" Value="pIFnE7ZzEHrt3HZN0ZqByQ==" Component_="sam_server"/>
+    <ROW Registry="sam_server_1" Root="2" Key="SOFTWARE\WOW6432Node\BonfiglioliTools\Common" Name="sam_server" Value="pIFnE7ZzEHrt3HZN0ZqByQ==" Component_="sam_server_1"/>
+    <ROW Registry="sam_server_ip" Root="2" Key="SOFTWARE\WOW6432Node\BonfiglioliTools\Common" Name="sam_server_ip" Component_="sam_server_ip"/>
+    <ROW Registry="sam_u" Root="2" Key="SOFTWARE\BonfiglioliTools\Common" Name="sam_u" Value="MF/tdjx/lg9Kdsi/PBf8FA==" Component_="sam_u"/>
+    <ROW Registry="sam_u_1" Root="2" Key="SOFTWARE\WOW6432Node\BonfiglioliTools\Common" Name="sam_u" Value="MF/tdjx/lg9Kdsi/PBf8FA==" Component_="sam_u_1"/>
+    <ROW Registry="version" Root="2" Key="SOFTWARE\BonfiglioliTools\JobBudgetApp" Name="version" Value="0.1" Component_="version"/>
+    <ROW Registry="version_1" Root="2" Key="SOFTWARE\WOW6432Node\BonfiglioliTools\JobBudgetApp" Name="version" Value="0.1" Component_="version_1"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
+    <ROW Shortcut="BELunchTool" Directory_="SHORTCUTDIR" Name="BELUNC~1|BELunchTool" Component_="BELunchTool.exe" Target="[#BELunchTool.exe]" Hotkey="0" Icon_="icon.exe" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
+    <ROW Shortcut="BELunchTool_1" Directory_="DesktopFolder" Name="BELUNC~1|BELunchTool" Component_="BELunchTool.exe" Target="[#BELunchTool.exe]" Hotkey="0" Icon_="icon.exe" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
+    <ROW Shortcut="BELunchTool_2" Directory_="StartMenuFolder" Name="BELUNC~1|BELunchTool" Component_="BELunchTool.exe" Target="[#BELunchTool.exe]" Hotkey="0" Icon_="icon.exe" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
+    <ATTRIBUTE name="UsedTheme" value="classic"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="0.0.1" VersionMax="[|ProductVersion]" Attributes="257" ActionProperty="OLDPRODUCTS"/>
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
+  </COMPONENT>
+</DOCUMENT>

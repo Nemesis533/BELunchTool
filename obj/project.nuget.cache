@@ -1,12 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "wseb7p7l3f/HDpeEYN6To0arfSQLVPcIzVXQt6ChVMElB2XzrKigjHx+IyBEWm0FAjElYiweOv5G8NRSwGcQSw==",
+  "dgSpecHash": "lVVIkVe98Z2Fzo1j67xaNtdC4s927B+5d74LowzW2rI0HPLEjvjMYuBDm5rL1g6QcHoT5IdUiC+fBWIpXQ0WQw==",
   "success": true,
   "projectFilePath": "D:\\Documents\\GitRepos\\BELunchTool\\BELunchTool.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nzanarini\\.nuget\\packages\\excellibrary\\1.2011.7.31\\excellibrary.1.2011.7.31.nupkg.sha512",
     "C:\\Users\\nzanarini\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
-    "C:\\Users\\nzanarini\\.nuget\\packages\\microsoft.office.interop.excel\\15.0.4795.1001\\microsoft.office.interop.excel.15.0.4795.1001.nupkg.sha512",
     "C:\\Users\\nzanarini\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\nzanarini\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
     "C:\\Users\\nzanarini\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",

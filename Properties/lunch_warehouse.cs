@@ -166,11 +166,11 @@ namespace BELunchTool.Properties
                 Common_Functions_WinfForm.PopObjFromUIOrUIFromObj(lunch_Option, this, false);
                 if (create_lunch_name) { current_option.P_lunch_id = 0; }; //this way the name can be updated instead of creatign a new option - otherwise it just writes what it finds
                 if (current_option.P_lunch_id != 0) { lunch_Option.P_lunch_id = current_option.P_lunch_id; } //shoudl this be an existing option, the id gets written to it can update
-                lunch_Option.P_lunch_id = SQL_Queries.UpdateOrWriteSingleLine(lunch_Option, current_user, true);
+                current_option.P_lunch_id = SQL_Queries.UpdateOrWriteSingleLine(lunch_Option, current_user, true);
             }
             catch (ErrorHandler err)
             {
-                err.LogWrite("Error while saving");
+                err.LogWrite("Errore Durante il Salvataggio");
                 return false;
             }
             try
@@ -178,13 +178,13 @@ namespace BELunchTool.Properties
                 Common_Functions_WinfForm.PopObjFromUIOrUIFromObj(lunch_type, this, false);
                 if (current_type.P_lunch_type_id != 0) { lunch_type.P_lunch_type_id = current_type.P_lunch_type_id; } //should this be an existing option, the id gets written to it can update
                 lunch_to_lunch_type_match Lunch_Type_Match = new lunch_to_lunch_type_match();
-                Lunch_Type_Match.P_lunch_id = lunch_Option.P_lunch_id;
+                Lunch_Type_Match.P_lunch_id = current_option.P_lunch_id;
                 Lunch_Type_Match.P_lunch_type_id = lunch_type.P_lunch_type_id;
                 Lunch_Type_Match.P_lunch_match_id = SQL_Queries.UpdateOrWriteSingleLine(Lunch_Type_Match, current_user, true);
             }
             catch (ErrorHandler err)
             {
-                err.LogWrite("Error while saving");
+                err.LogWrite("Errore Durante il Salvataggio");
                 return false;
             }
             return true;
@@ -202,14 +202,14 @@ namespace BELunchTool.Properties
                 }
                 else
                 {
-                     result = MessageBox.Show($"Aggiornare il piatto {current_option.P_lunch_name} ? ", "Conferma", MessageBoxButtons.YesNo);
+                    result = MessageBox.Show($"Aggiornare il piatto {current_option.P_lunch_name} ? ", "Conferma", MessageBoxButtons.YesNo);
                 }
-                
+
                 if (result == DialogResult.Yes)
                 {
                     if (save_or_update_data(create_new.Checked))
                     {
-                        Common_Functions_WinfForm.DisplayMessage($"Data successfully saved for meal {lunch_name.Text}", "Data Saved", ButtonTypesEnum.OkOnly);
+                        Common_Functions_WinfForm.DisplayMessage($"Dati salvati per il piatto {lunch_name.Text}", "Salvato", ButtonTypesEnum.OkOnly);
                         populate_lunch_view_list();
                     }
 
@@ -221,31 +221,39 @@ namespace BELunchTool.Properties
         private void lunch_name_SelectedIndexChanged(object sender, EventArgs e)
         {
             current_option = new lunch_option();
-            current_option.P_lunch_id = Convert.ToInt32(SQL_Queries.GetValues(Connection_Handler, current_option.P_MyTable, current_option.P_MyIdString, DistinctOrGeneral.Distinct, current_option.P_MyNameString, lunch_name.SelectedItem.ToString()).Rows[0][0]);
-            if (int.TryParse(current_option.P_lunch_id.ToString(), out _))
+            if(lunch_name.SelectedItem is not null)
             {
-                current_option.PopulateSelf(Connection_Handler);
-                Common_Functions_WinfForm.PopObjFromUIOrUIFromObj(current_option, this, true);
+                current_option.P_lunch_id = Convert.ToInt32(SQL_Queries.GetValues(Connection_Handler, current_option.P_MyTable, current_option.P_MyIdString, DistinctOrGeneral.Distinct, current_option.P_MyNameString, lunch_name.SelectedItem.ToString()).Rows[0][0]);
+                if (int.TryParse(current_option.P_lunch_id.ToString(), out _))
+                {
+                    current_option.PopulateSelf(Connection_Handler);
+                    Common_Functions_WinfForm.PopObjFromUIOrUIFromObj(current_option, this, true);
+                }
+                else
+                {
+                    current_option.P_lunch_id = 0;
+                }
             }
-            else
-            {
-                current_option.P_lunch_id = 0;
-            }
+
 
         }
         private void lunch_type_desc_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             current_type = new lunch_type();
-            current_type.P_lunch_type_id = Convert.ToInt32(SQL_Queries.GetValues(Connection_Handler, current_type.P_MyTable, current_type.P_MyIdString, DistinctOrGeneral.Distinct, current_type.P_MyNameString, lunch_type_desc.SelectedItem.ToString()).Rows[0][0]);
-            if (int.TryParse(current_type.P_lunch_type_id.ToString(), out _))
+            if(lunch_type_desc.SelectedItem is not null)
             {
-                current_type.PopulateSelf(Connection_Handler);
-                Common_Functions_WinfForm.PopObjFromUIOrUIFromObj(current_type, this, true);
+                current_type.P_lunch_type_id = Convert.ToInt32(SQL_Queries.GetValues(Connection_Handler, current_type.P_MyTable, current_type.P_MyIdString, DistinctOrGeneral.Distinct, current_type.P_MyNameString, lunch_type_desc.SelectedItem.ToString()).Rows[0][0]);
+                if (int.TryParse(current_type.P_lunch_type_id.ToString(), out _))
+                {
+                    current_type.PopulateSelf(Connection_Handler);
+                    Common_Functions_WinfForm.PopObjFromUIOrUIFromObj(current_type, this, true);
+                }
+                else
+                {
+                    current_type.P_lunch_type_id = 0;
+                }
             }
-            else
-            {
-                current_type.P_lunch_type_id = 0;
-            }
+
         }
 
         private void user_name_SelectedIndexChanged(object sender, EventArgs e)
@@ -342,7 +350,7 @@ namespace BELunchTool.Properties
             List<user_purchase_obj> user_purchase_obj_ = new List<user_purchase_obj>();
             SaveFileDialog saveDialog = new SaveFileDialog();
 
-            
+
 
             saveDialog.Filter = "Excel Files|*.xls";
             DialogResult result = saveDialog.ShowDialog();
@@ -359,7 +367,7 @@ namespace BELunchTool.Properties
                 }
             }
         }
-        
+
         private List<user_purchase_obj> get_purchases(bool for_all_users)
         {
             List<user_purchase_obj> user_purchase_obj_ = new List<user_purchase_obj>();
@@ -376,7 +384,7 @@ namespace BELunchTool.Properties
                     user_Purchase.UpdateProperty(dataRow, user_Purchase, dt);
                     if (TimeBetween(user_Purchase.P_date, start_date.Value.Date, end_date.Value.Date))
                     {
-                        
+
 
                         user_purchase_obj_.Add(user_Purchase);
                     }
@@ -448,11 +456,11 @@ namespace BELunchTool.Properties
             DialogResult result = MessageBox.Show($"Stornare tutti gli acquisti di tutti gli utenti per il periodo selezionato? ", "Conferma", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                
+
                 List<user_purchase_obj> user_purchase_obj_ = new List<user_purchase_obj>();
-                user_purchase_obj_=  get_purchases(true);
+                user_purchase_obj_ = get_purchases(true);
                 foreach (user_purchase_obj purchase in user_purchase_obj_)
-                {                        
+                {
                     if (purchase.P_status == 0)
                     {
                         purchase.P_status = 1;
@@ -463,6 +471,21 @@ namespace BELunchTool.Properties
             }
             load_user_purchases(null);
             MessageBox.Show($"Completato, ho stornato tutti gli acquisti per tutti gli utenti nel periodo selezionato - aggiornati {counter} record ", "Completato!", MessageBoxButtons.OK);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //reset specific fields in the UI
+            lunch_desc.Text = "";
+            lunch_type_desc.SelectedItem = null;
+            lunch_stock_qty.Text = "";
+            lunch_price.Text = "";
+            lunch_cost.Text = "";
+            ddt.Text = "";
+            lunch_be_code.Text = "";
+            lunch_supplier_code.Text = "";
+            lunch_name.SelectedItem = null;
+
         }
     }
 }

@@ -6,11 +6,15 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>bin\Resources\icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="bin\Resources\icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="ExcelLibrary" Version="1.2011.7.31" />
-    <PackageReference Include="Microsoft.Office.Interop.Excel" Version="15.0.4795.1001" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
   </ItemGroup>
 
@@ -20,6 +24,9 @@
     </Reference>
     <Reference Include="CommonWinForms">
       <HintPath>..\BonfiglioliInternalTools\CommonLibsAndObjects\DLL\CommonWinForms\bin\Debug\net6.0-windows\CommonWinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SqlClient">
+      <HintPath>bin\Debug\net6.0-windows\System.Data.SqlClient.dll</HintPath>
     </Reference>
   </ItemGroup>
 

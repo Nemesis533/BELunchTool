@@ -54,10 +54,6 @@
               "target": "Package",
               "version": "[1.2011.7.31, )"
             },
-            "Microsoft.Office.Interop.Excel": {
-              "target": "Package",
-              "version": "[15.0.4795.1001, )"
-            },
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.6, )"

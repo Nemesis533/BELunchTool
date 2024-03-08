@@ -67,6 +67,7 @@
             label = new Label();
             button1 = new Button();
             create_new = new CheckBox();
+            clea_UI = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -93,9 +94,9 @@
             // lunch_type_desc
             // 
             lunch_type_desc.FormattingEnabled = true;
-            lunch_type_desc.Location = new Point(398, 12);
+            lunch_type_desc.Location = new Point(479, 13);
             lunch_type_desc.Name = "lunch_type_desc";
-            lunch_type_desc.Size = new Size(275, 23);
+            lunch_type_desc.Size = new Size(207, 23);
             lunch_type_desc.TabIndex = 4;
             lunch_type_desc.Tag = "compulsory";
             lunch_type_desc.SelectedIndexChanged += lunch_type_desc_SelectedIndexChanged_1;
@@ -103,7 +104,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(352, 15);
+            label2.Location = new Point(443, 17);
             label2.Name = "label2";
             label2.Size = new Size(30, 15);
             label2.TabIndex = 3;
@@ -255,7 +256,7 @@
             lunch_cost.Name = "lunch_cost";
             lunch_cost.Size = new Size(163, 23);
             lunch_cost.TabIndex = 22;
-            lunch_cost.Tag = "compulsory";
+            lunch_cost.Tag = "";
             // 
             // label11
             // 
@@ -403,14 +404,14 @@
             lunch_desc.MaxLength = 255;
             lunch_desc.Multiline = true;
             lunch_desc.Name = "lunch_desc";
-            lunch_desc.Size = new Size(273, 116);
+            lunch_desc.Size = new Size(273, 269);
             lunch_desc.TabIndex = 39;
             lunch_desc.Tag = "compulsory";
             // 
             // label
             // 
             label.AutoSize = true;
-            label.Location = new Point(26, 72);
+            label.Location = new Point(27, 72);
             label.Name = "label";
             label.Size = new Size(101, 15);
             label.TabIndex = 40;
@@ -433,12 +434,26 @@
             // create_new
             // 
             create_new.AutoSize = true;
-            create_new.Location = new Point(71, 41);
+            create_new.Location = new Point(332, 15);
             create_new.Name = "create_new";
             create_new.Size = new Size(89, 19);
             create_new.TabIndex = 42;
             create_new.Text = "Crea Nuovo";
             create_new.UseVisualStyleBackColor = true;
+            // 
+            // clea_UI
+            // 
+            clea_UI.BackgroundImage = (Image)resources.GetObject("clea_UI.BackgroundImage");
+            clea_UI.BackgroundImageLayout = ImageLayout.Zoom;
+            clea_UI.FlatAppearance.BorderSize = 0;
+            clea_UI.FlatStyle = FlatStyle.Flat;
+            clea_UI.Location = new Point(27, 365);
+            clea_UI.Name = "clea_UI";
+            clea_UI.Size = new Size(160, 37);
+            clea_UI.TabIndex = 43;
+            clea_UI.Text = "Reset Interfaccia";
+            clea_UI.UseVisualStyleBackColor = true;
+            clea_UI.Click += button2_Click;
             // 
             // lunch_warehouse
             // 
@@ -447,6 +462,7 @@
             BackColor = Color.White;
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(1403, 761);
+            Controls.Add(clea_UI);
             Controls.Add(create_new);
             Controls.Add(button1);
             Controls.Add(label);
@@ -529,5 +545,6 @@
         private Button button1;
         private CheckBox include_closed;
         private CheckBox create_new;
+        private Button clea_UI;
     }
 }

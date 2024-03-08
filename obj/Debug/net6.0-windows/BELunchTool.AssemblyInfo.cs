@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BELunchTool")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c6f0c1659b879654ff52ec5be5e645405d4f0d52")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8d6cb8cd2c8e52c505e31ae3fda26afe40a2d61d")]
 [assembly: System.Reflection.AssemblyProductAttribute("BELunchTool")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BELunchTool")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
