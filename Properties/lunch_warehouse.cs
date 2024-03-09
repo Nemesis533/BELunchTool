@@ -16,6 +16,8 @@ using CommonWinForms.CommonForms;
 using BELunchTool;
 using System.Reflection;
 using System.Diagnostics.Metrics;
+using ExcelLibrary.SpreadSheet;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace BELunchTool.Properties
 {
@@ -426,7 +428,6 @@ namespace BELunchTool.Properties
                 dtTable.Columns.Add(new DataColumn("ID Ordine", typeof(string)));
                 dtTable.Columns.Add(new DataColumn("Utente", typeof(string)));
                 dtTable.Columns.Add(new DataColumn("Data", typeof(string)));
-                dtTable.Columns.Add(new DataColumn("Numero Ordine", typeof(string)));
                 dtTable.Columns.Add(new DataColumn("Nome Piatto", typeof(string)));
                 dtTable.Columns.Add(new DataColumn("Valore in Ticket", typeof(string)));
                 dtTable.Columns.Add(new DataColumn ("Stato", typeof(string)));
@@ -448,13 +449,23 @@ namespace BELunchTool.Properties
                     dr[0] = user_purchase_obj.P_user_purchase_id;
                     dr[1] = user.P_user_name;
                     dr[2] = user_purchase_obj.P_date;
-                    dr[3] = user_purchase_obj.P_user_purchase_id;
-                    dr[4] = lunch_Option.P_lunch_name;
-                    dr[5] = lunch_Option.P_lunch_price;
-                    dr[6] = (user_purchase_obj.P_status == 0) ? "Aperto" : "Chiuso" ;
+                    dr[3] = lunch_Option.P_lunch_name;
+                    dr[4] = lunch_Option.P_lunch_price;
+                    dr[5] = (user_purchase_obj.P_status == 0) ? "Aperto" : "Chiuso" ;
                     dtTable.Rows.Add(dr);
-
                 }
+                for (int i = 0; i < 100; i++)
+                {
+                    DataRow dr = dtTable.NewRow();
+                    dr[0] = "";
+                    dr[1] = "";
+                    dr[2] = "";
+                    dr[3] = "";
+                    dr[4] = "";
+                    dr[5] = "";
+                    dtTable.Rows.Add(dr);
+                }
+                    
                 DataSet ds = new DataSet();
                 ds.Tables.Add(dtTable);
 
