@@ -68,7 +68,6 @@ namespace BELunchTool.Properties
                         ListView_instance.View = View.Details;
                         ListView_instance.Columns.Add("ID", 50, HorizontalAlignment.Left);
                         ListView_instance.Columns.Add("Piatto", 550, HorizontalAlignment.Left);
-                        ListView_instance.Columns.Add("Quantita'", 100, HorizontalAlignment.Left);
                         ListView_instance.Columns.Add("Prezzo", 100, HorizontalAlignment.Left);
                         ListView_instance.Columns.Add("Data", 100, HorizontalAlignment.Left);
                         ListView_instance.Columns.Add("Stato", 100, HorizontalAlignment.Left);
@@ -195,25 +194,34 @@ namespace BELunchTool.Properties
             //will check if all compulsory fields are populated and then insert or update the values
             if (Common_Functions_WinfForm.CheckControlsByTag(this, Common_Functions_WinfForm.TagsList.compulsory))
             {
+                
                 DialogResult result;
                 if (create_new.Checked)
                 {
-                    result = MessageBox.Show($"Creare un nuovo piatto?", "Conferma", MessageBoxButtons.YesNo);
+                    result = MessageBox.Show($"Creare un nuovo piatto chiamato {lunch_name.Text}?", "Conferma", MessageBoxButtons.YesNo);
                 }
                 else
                 {
                     result = MessageBox.Show($"Aggiornare il piatto {current_option.P_lunch_name} ? ", "Conferma", MessageBoxButtons.YesNo);
                 }
-
-                if (result == DialogResult.Yes)
+                try
                 {
-                    if (save_or_update_data(create_new.Checked))
+                    if (result == DialogResult.Yes)
                     {
-                        Common_Functions_WinfForm.DisplayMessage($"Dati salvati per il piatto {lunch_name.Text}", "Salvato", ButtonTypesEnum.OkOnly);
-                        populate_lunch_view_list();
-                    }
+                        if (save_or_update_data(create_new.Checked))
+                        {
+                            Common_Functions_WinfForm.DisplayMessage($"Dati salvati per il piatto {lunch_name.Text}", "Salvato", ButtonTypesEnum.OkOnly);
+                            populate_lunch_view_list();
+                            reset_lunch_data();
+                        }
 
+                    }
                 }
+                catch(ErrorHandler err)
+                {
+                    err.LogWrite();
+                }
+
 
             }
         }
@@ -276,6 +284,7 @@ namespace BELunchTool.Properties
 
             user_purchases.Items.Clear();
             user_purchase_obj_list.Clear();
+            list_of_purchased_items.Clear();
 
             if (selected_user.P_user_id == 0)
             {
@@ -306,7 +315,7 @@ namespace BELunchTool.Properties
                     lunch_Option.PopulateSelf(Connection_Handler);
                     lunch_Option.P_lunch_id = Convert.ToInt16(dataRow[lunch_Option.P_MyIdString]);
                     list_of_purchased_items.Add(lunch_Option);
-                    ListViewItem item = new ListViewItem(new[] { user_Purchase_Obj.P_user_purchase_id.ToString(), lunch_Option.P_lunch_name + lunch_Option.P_lunch_desc, lunch_Option.P_lunch_price.ToString(), user_Purchase_Obj.P_date.ToString(), user_Purchase_Obj.P_status.ToString() });
+                    ListViewItem item = new ListViewItem(new[] { user_Purchase_Obj.P_user_purchase_id.ToString(), lunch_Option.P_lunch_name , lunch_Option.P_lunch_price.ToString(), user_Purchase_Obj.P_date.ToString(), (user_Purchase_Obj.P_status == 0) ? "Aperto" : "Chiuso" });
                     user_purchases.Items.Add(item);
                     user_purchase_obj_list.Add(user_Purchase_Obj);
                 }
@@ -324,20 +333,29 @@ namespace BELunchTool.Properties
         private void mark_paid_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show($"Stornare tutti gli acquisti dell'utente {user_name.SelectedItem} del periodo selezionato? ", "Conferma", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
+            try
             {
-                foreach (user_purchase_obj purchase in user_purchase_obj_list)
+                if (result == DialogResult.Yes)
                 {
-                    if (purchase.P_date.Month == DateTime.Now.Month)
+                    foreach (user_purchase_obj purchase in user_purchase_obj_list)
                     {
-                        purchase.P_status = 1;
-                        SQL_Queries.UpdateOrWriteSingleLine(purchase, current_user, false);
-                    }
+                        if (purchase.P_date.Month == DateTime.Now.Month)
+                        {
+                            purchase.P_status = 1;
+                            SQL_Queries.UpdateOrWriteSingleLine(purchase, current_user, false);
+                        }
 
+                    }
                 }
+                load_user_purchases(null);
+                MessageBox.Show($"Completato, ho stornato tutti gli acquisti dell'utente {user_name.SelectedItem} nel periodo selezionato ", "Completato!", MessageBoxButtons.OK);
+
             }
-            load_user_purchases(null);
-            MessageBox.Show($"Completato, ho stornato tutti gli acquisti dell'utente {user_name.SelectedItem} nel periodo selezionato ", "Completato!", MessageBoxButtons.OK);
+            catch(ErrorHandler err)
+            {
+                err.LogWrite();
+            }
+
         }
 
         private void label11_Click(object sender, EventArgs e)
@@ -411,6 +429,7 @@ namespace BELunchTool.Properties
                 dtTable.Columns.Add(new DataColumn("Numero Ordine", typeof(string)));
                 dtTable.Columns.Add(new DataColumn("Nome Piatto", typeof(string)));
                 dtTable.Columns.Add(new DataColumn("Valore in Ticket", typeof(string)));
+                dtTable.Columns.Add(new DataColumn ("Stato", typeof(string)));
 
 
                 // Populate data from list
@@ -432,6 +451,7 @@ namespace BELunchTool.Properties
                     dr[3] = user_purchase_obj.P_user_purchase_id;
                     dr[4] = lunch_Option.P_lunch_name;
                     dr[5] = lunch_Option.P_lunch_price;
+                    dr[6] = (user_purchase_obj.P_status == 0) ? "Aperto" : "Chiuso" ;
                     dtTable.Rows.Add(dr);
 
                 }
@@ -454,26 +474,40 @@ namespace BELunchTool.Properties
         {
             int counter = 0;
             DialogResult result = MessageBox.Show($"Stornare tutti gli acquisti di tutti gli utenti per il periodo selezionato? ", "Conferma", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
+            try
             {
-
-                List<user_purchase_obj> user_purchase_obj_ = new List<user_purchase_obj>();
-                user_purchase_obj_ = get_purchases(true);
-                foreach (user_purchase_obj purchase in user_purchase_obj_)
+                if (result == DialogResult.Yes)
                 {
-                    if (purchase.P_status == 0)
+
+                    List<user_purchase_obj> user_purchase_obj_ = new List<user_purchase_obj>();
+                    user_purchase_obj_ = get_purchases(true);
+                    foreach (user_purchase_obj purchase in user_purchase_obj_)
                     {
-                        purchase.P_status = 1;
-                        SQL_Queries.UpdateOrWriteSingleLine(purchase, current_user, false);
-                        counter++;
+                        if (purchase.P_status == 0)
+                        {
+                            purchase.P_status = 1;
+                            SQL_Queries.UpdateOrWriteSingleLine(purchase, current_user, false);
+                            counter++;
+                        }
                     }
                 }
+                load_user_purchases(null);
+                MessageBox.Show($"Completato, ho stornato tutti gli acquisti per tutti gli utenti nel periodo selezionato - aggiornati {counter} record ", "Completato!", MessageBoxButtons.OK);
+
             }
-            load_user_purchases(null);
-            MessageBox.Show($"Completato, ho stornato tutti gli acquisti per tutti gli utenti nel periodo selezionato - aggiornati {counter} record ", "Completato!", MessageBoxButtons.OK);
+            catch(ErrorHandler err)
+            { 
+                err.LogWrite();
+            }
+
         }
 
         private void button2_Click(object sender, EventArgs e)
+        {
+            reset_lunch_data();
+        }
+
+        private void reset_lunch_data()
         {
             //reset specific fields in the UI
             lunch_desc.Text = "";
@@ -485,7 +519,8 @@ namespace BELunchTool.Properties
             lunch_be_code.Text = "";
             lunch_supplier_code.Text = "";
             lunch_name.SelectedItem = null;
-
+            lunch_name.Text = "";
+            current_option = new lunch_option();
         }
     }
 }

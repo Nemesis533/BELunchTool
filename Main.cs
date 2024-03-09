@@ -40,7 +40,7 @@ namespace BELunchTool
             {
                 if (ctrl is ListView)
                 {
-                    
+
                     ListView ListView_instance = ctrl as ListView;
                     ListView_instance.Columns.Clear();
                     ListView_instance.View = View.Details;
@@ -107,16 +107,25 @@ namespace BELunchTool
             //opens the quantity editing screen - required authentication before proceeding
             login_form login_Form = new login_form(this);
             login_Form.ShowDialog();
-            if (login_Form.autorized & login_Form.P_User_Object.P_is_admin == 1)
+            try
             {
-                lunch_warehouse lunch_Warehouse = new lunch_warehouse();
-                lunch_Warehouse.current_user = login_Form.P_User_Object;
-                lunch_Warehouse.Show();
+                if (login_Form.autorized & login_Form.P_User_Object.P_is_admin == 1)
+                {
+                    lunch_warehouse lunch_Warehouse = new lunch_warehouse();
+                    lunch_Warehouse.current_user = login_Form.P_User_Object;
+                    lunch_Warehouse.Show();
+                }
+                else
+                {
+                    MessageBox.Show($"Utente non Autorizzato", "Impossibile Procedere", MessageBoxButtons.YesNo);
+                }
+
             }
-            else
+            catch(ErrorHandler error)
             {
-                MessageBox.Show($"Utente non Autorizzato", "Impossibile Procedere", MessageBoxButtons.YesNo);
+                error.LogWrite();
             }
+
 
         }
 
@@ -132,17 +141,19 @@ namespace BELunchTool
                 if (!basket.Items.Contains(lunch_list.SelectedItems[0]))
                 {
                     var item = lunch_list.SelectedItems[0];
-                    basket.Items.Add((ListViewItem)item.Clone());
+                    
                     lunch_option selected_meal = new lunch_option();
                     selected_meal = Common_Functions_WinfForm.ReturnObjFromListByName(list_of_lunches, selected_meal.P_MyIdString, lunch_list.SelectedItems[0].SubItems[0].Text);
-                    if(selected_meal.P_lunch_stock_qty != 0)
+                    int meals_in_basket = list_of_selected_items.Count(list_item => list_item.P_lunch_id == selected_meal.P_lunch_id );
+                    if (selected_meal.P_lunch_stock_qty > 0 & (selected_meal.P_lunch_stock_qty - meals_in_basket) >0)
                     {
                         list_of_selected_items.Add(selected_meal);
-                        basket_total.Text = get_sum_from_list(list_of_selected_items).ToString() + " Euro";
+                        basket_total.Text = get_sum_from_list(list_of_selected_items).ToString() + " Ticket";
+                        basket.Items.Add((ListViewItem)item.Clone());
                     }
                     else
                     {
-                        MessageBox.Show($"Il piatto {lunch_list.SelectedItems[0]} non e' disponibile", "Impossibile Procedere", MessageBoxButtons.YesNo);
+                        MessageBox.Show($"Il piatto {lunch_list.SelectedItems[0].SubItems[1].Text} non e' disponibile", "Impossibile Procedere", MessageBoxButtons.OK);
                     }
 
                 }
@@ -169,7 +180,7 @@ namespace BELunchTool
                 selected_meal = Common_Functions_WinfForm.ReturnObjFromListByName(list_of_lunches, selected_meal.P_MyIdString, basket.SelectedItems[0].SubItems[0].Text);
                 basket.Items.Remove(basket.SelectedItems[0]);
                 list_of_selected_items.Remove(selected_meal);
-                basket_total.Text = get_sum_from_list(list_of_selected_items).ToString() + " Euro";
+                basket_total.Text = get_sum_from_list(list_of_selected_items).ToString() + " Ticket";
             }
 
         }
@@ -201,7 +212,7 @@ namespace BELunchTool
                             user_Purchase_Obj.P_lunch_id = lunch.P_lunch_id;
                             user_Purchase_Obj.P_date = DateTime.Now;
                             user_Purchase_Obj.P_status = 0;
-                            SQL_Queries.UpdateOrWriteSingleLine(user_Purchase_Obj, current_user, false );
+                            SQL_Queries.UpdateOrWriteSingleLine(user_Purchase_Obj, current_user, false);
                             //when an item is purchsed, its quntity is reduced by 1
                             lunch.P_lunch_stock_qty = lunch.P_lunch_stock_qty - 1;
                             SQL_Queries.UpdateOrWriteSingleLine(lunch, current_user, false);
@@ -242,7 +253,7 @@ namespace BELunchTool
                 {
                     purchases.Items.Clear();
                     //adding columns
-                   
+
                     DataTable dt = new DataTable();
                     user_purchase_obj user_Purchase_Obj = new user_purchase_obj();
                     lunch_option lunch_Option = new lunch_option();
@@ -251,15 +262,15 @@ namespace BELunchTool
                     foreach (DataRow dataRow in dt.Rows)
                     {
                         //populating objects
-                        user_Purchase_Obj.P_user_purchase_id= Convert.ToInt32(dataRow[0]);
+                        user_Purchase_Obj.P_user_purchase_id = Convert.ToInt32(dataRow[0]);
                         user_Purchase_Obj.PopulateSelf(Connection_Handler);
                         lunch_Option.P_lunch_id = Convert.ToInt32(dataRow[lunch_Option.P_MyIdString]);
                         lunch_Option.PopulateSelf(Connection_Handler);
 
                         //doign it directly instad of writing a dedicated function
-                        ListViewItem item = new ListViewItem(new[] { user_Purchase_Obj.P_user_purchase_id.ToString(), lunch_Option.P_lunch_name ,user_Purchase_Obj.P_date.ToShortDateString(), lunch_Option.P_lunch_price.ToString() });
+                        ListViewItem item = new ListViewItem(new[] { user_Purchase_Obj.P_user_purchase_id.ToString(), lunch_Option.P_lunch_name, user_Purchase_Obj.P_date.ToShortDateString(), lunch_Option.P_lunch_price.ToString() });
                         purchases.Items.Add(item);
-                        
+
                         list_of_purchased_items.Add(lunch_Option);
                     }
                     //resizing columns and updating total price
@@ -268,6 +279,22 @@ namespace BELunchTool
 
                 }
             }
+        }
+
+        private void clear_basket_Click(object sender, EventArgs e)
+        {
+            basket.Items.Clear();
+            list_of_selected_items.Clear();
+            basket_total.Text = "/";
+
+
+        }
+
+        private void clear_history_Click(object sender, EventArgs e)
+        {
+            purchases.Items.Clear();
+            list_of_purchased_items.Clear();
+            purchases_total.Text = "/";
         }
     }
 }

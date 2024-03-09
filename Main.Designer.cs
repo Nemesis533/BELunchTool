@@ -48,6 +48,8 @@
             version = new Label();
             label3 = new Label();
             label6 = new Label();
+            clear_basket = new Button();
+            clear_history = new Button();
             SuspendLayout();
             // 
             // label1
@@ -256,12 +258,42 @@
             label6.TabIndex = 32;
             label6.Text = "Vedi Storico";
             // 
+            // clear_basket
+            // 
+            clear_basket.BackgroundImage = Properties.Resources.GreyButton_v2;
+            clear_basket.BackgroundImageLayout = ImageLayout.Zoom;
+            clear_basket.FlatAppearance.BorderSize = 0;
+            clear_basket.FlatStyle = FlatStyle.Flat;
+            clear_basket.Location = new Point(1490, 346);
+            clear_basket.Name = "clear_basket";
+            clear_basket.Size = new Size(160, 37);
+            clear_basket.TabIndex = 33;
+            clear_basket.Text = "Pulisci Carrello";
+            clear_basket.UseVisualStyleBackColor = true;
+            clear_basket.Click += clear_basket_Click;
+            // 
+            // clear_history
+            // 
+            clear_history.BackgroundImage = Properties.Resources.GreyButton_v2;
+            clear_history.BackgroundImageLayout = ImageLayout.Zoom;
+            clear_history.FlatAppearance.BorderSize = 0;
+            clear_history.FlatStyle = FlatStyle.Flat;
+            clear_history.Location = new Point(1490, 848);
+            clear_history.Name = "clear_history";
+            clear_history.Size = new Size(160, 37);
+            clear_history.TabIndex = 34;
+            clear_history.Text = "Reset Visualizzazione";
+            clear_history.UseVisualStyleBackColor = true;
+            clear_history.Click += clear_history_Click;
+            // 
             // main_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1920, 1032);
+            Controls.Add(clear_history);
+            Controls.Add(clear_basket);
             Controls.Add(label6);
             Controls.Add(label3);
             Controls.Add(version);
@@ -311,5 +343,7 @@
         private Label version;
         private Label label3;
         private Label label6;
+        private Button clear_basket;
+        private Button clear_history;
     }
 }
