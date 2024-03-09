@@ -181,7 +181,6 @@
             lunch_list.Size = new Size(934, 928);
             lunch_list.TabIndex = 24;
             lunch_list.UseCompatibleStateImageBehavior = false;
-            lunch_list.SelectedIndexChanged += lunch_list_SelectedIndexChanged;
             // 
             // basket
             // 
@@ -226,7 +225,6 @@
             label9.Size = new Size(54, 15);
             label9.TabIndex = 29;
             label9.Text = "Versione:";
-            label9.Click += label9_Click;
             // 
             // version
             // 
@@ -260,11 +258,11 @@
             // 
             // clear_basket
             // 
-            clear_basket.BackgroundImage = Properties.Resources.GreyButton_v2;
+            clear_basket.BackgroundImage = Properties.Resources.GreenButton_v2;
             clear_basket.BackgroundImageLayout = ImageLayout.Zoom;
             clear_basket.FlatAppearance.BorderSize = 0;
             clear_basket.FlatStyle = FlatStyle.Flat;
-            clear_basket.Location = new Point(1490, 346);
+            clear_basket.Location = new Point(1370, 349);
             clear_basket.Name = "clear_basket";
             clear_basket.Size = new Size(160, 37);
             clear_basket.TabIndex = 33;
@@ -274,17 +272,16 @@
             // 
             // clear_history
             // 
-            clear_history.BackgroundImage = Properties.Resources.GreyButton_v2;
+            clear_history.BackgroundImage = Properties.Resources.GreenButton_v2;
             clear_history.BackgroundImageLayout = ImageLayout.Zoom;
             clear_history.FlatAppearance.BorderSize = 0;
             clear_history.FlatStyle = FlatStyle.Flat;
-            clear_history.Location = new Point(1490, 848);
+            clear_history.Location = new Point(1370, 851);
             clear_history.Name = "clear_history";
             clear_history.Size = new Size(160, 37);
             clear_history.TabIndex = 34;
             clear_history.Text = "Reset Visualizzazione";
             clear_history.UseVisualStyleBackColor = true;
-            clear_history.Click += clear_history_Click;
             // 
             // main_form
             // 

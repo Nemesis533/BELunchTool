@@ -230,7 +230,7 @@
             label8.Size = new Size(26, 15);
             label8.TabIndex = 20;
             label8.Text = "Qty";
-            label8.Click += label8_Click;
+
             // 
             // label9
             // 
@@ -266,7 +266,7 @@
             label11.Size = new Size(28, 15);
             label11.TabIndex = 25;
             label11.Text = "DDT";
-            label11.Click += label11_Click;
+
             // 
             // ddt
             // 
@@ -498,7 +498,6 @@
             Name = "lunch_warehouse";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Gestione Oridini";
-            Load += lunch_warehouse_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

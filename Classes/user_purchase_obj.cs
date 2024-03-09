@@ -8,20 +8,32 @@ using Common_Classes_Namespace;
 
 namespace BELunchTool.Classes
 {
+    /**
+     * @class user_purchase_obj
+     * @brief This class represents a user purchase object.
+     * It inherits from the ParentClass.
+     */
     public class user_purchase_obj : ParentClass
     {
+        /**
+         * @brief The constructor of the user_purchase_obj class.
+         * It initializes the ID string and the table name.
+         */
         public user_purchase_obj()
         {
-            P_MyIdString = "user_purchase_id";
-            P_MyTable = "user_purchases";
-
+            P_MyIdString = "user_purchase_id"; ///< @brief The ID string of the user purchase object.
+            P_MyTable = "user_purchases"; ///< @brief The table name of the user purchase object.
         }
-        int user_purchase_id;
-        int user_id;
-        int lunch_id;
-        DateTime date;
-        int status;
 
+        int user_purchase_id; ///< @brief The ID of the user purchase.
+        int user_id; ///< @brief The ID of the user.
+        int lunch_id; ///< @brief The ID of the lunch.
+        DateTime date; ///< @brief The date of the purchase.
+        int status; ///< @brief The status of the purchase.
+
+        /**
+         * @brief A property that gets or sets the status of the purchase.
+         */
         public int P_status
         {
             get
@@ -34,7 +46,9 @@ namespace BELunchTool.Classes
             }
         }
 
-
+        /**
+         * @brief A property that gets or sets the ID of the user purchase.
+         */
         public int P_user_purchase_id
         {
             get
@@ -46,6 +60,10 @@ namespace BELunchTool.Classes
                 user_purchase_id = value;
             }
         }
+
+        /**
+         * @brief A property that gets or sets the ID of the user.
+         */
         public int P_user_id
         {
             get
@@ -57,6 +75,10 @@ namespace BELunchTool.Classes
                 user_id = value;
             }
         }
+
+        /**
+         * @brief A property that gets or sets the ID of the lunch.
+         */
         public int P_lunch_id
         {
             get
@@ -69,6 +91,9 @@ namespace BELunchTool.Classes
             }
         }
 
+        /**
+         * @brief A property that gets or sets the date of the purchase.
+         */
         public DateTime P_date
         {
             get
@@ -77,9 +102,8 @@ namespace BELunchTool.Classes
             }
             set
             {
-               date = value;
+                date = value;
             }
         }
-
     }
 }
