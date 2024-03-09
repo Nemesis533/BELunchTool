@@ -30,6 +30,39 @@ namespace BELunchTool.Classes
         int lunch_id; ///< @brief The ID of the lunch.
         DateTime date; ///< @brief The date of the purchase.
         int status; ///< @brief The status of the purchase.
+        int status_changed_by; ///< @brief int containign a reference to who changed the status.
+        DateTime changed_date; ///< @brief date when the status was changed
+
+        /**
+         * @brief A property that gets or sets the status of the purchase.
+         */
+        public int P_status_changed_by
+        {
+            get
+            {
+                return status_changed_by;
+            }
+            set
+            {
+                status_changed_by = value;
+            }
+        }
+
+        /**
+         * @brief A property that gets or sets the status of the purchase.
+         */
+        public DateTime P_changed_date
+        {
+            get
+            {
+                return changed_date;
+            }
+            set
+            {
+                changed_date = value;
+            }
+        }
+
 
         /**
          * @brief A property that gets or sets the status of the purchase.

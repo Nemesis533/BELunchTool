@@ -401,10 +401,13 @@ namespace BELunchTool.Properties
                     {
                         if (purchase.P_date.Month == DateTime.Now.Month) ///< @brief Check if the month of the purchase date is the current month.
                         {
+                            purchase.P_changed_date = DateTime.Now;
+                            purchase.P_status_changed_by = current_user.P_user_id;
                             purchase.P_status = 1; ///< @brief Mark the purchase as paid.
                             SQL_Queries.UpdateOrWriteSingleLine(purchase, current_user, false); ///< @brief Update or write a single line to the database.
                         }
                     }
+                    user_name.Text = "";
                 }
                 load_user_purchases(null); ///< @brief Load the user purchases.
                 // Show a message box to confirm the successful operation.
@@ -431,16 +434,24 @@ namespace BELunchTool.Properties
             if (result == DialogResult.OK) ///< @brief Check if the user confirmed the operation.
             {
                 user_purchase_obj_ = get_purchases(print_all.Checked); ///< @brief Get the purchases.
-                if (ListToExcel(user_purchase_obj_, saveDialog.FileName)) ///< @brief Convert the list to an Excel file and save the file.
+                if (user_purchase_obj_.Count >0)
                 {
-                    // Show a message box to confirm the successful operation.
-                    MessageBox.Show($"File {saveDialog.FileName} creato", "Completato!", MessageBoxButtons.OK);
+                    if (ListToExcel(user_purchase_obj_, saveDialog.FileName)) ///< @brief Convert the list to an Excel file and save the file.
+                    {
+                        // Show a message box to confirm the successful operation.
+                        MessageBox.Show($"File {saveDialog.FileName} creato", "Completato!", MessageBoxButtons.OK);
+                    }
+                    else
+                    {
+                        // Show a message box if there was an error.
+                        MessageBox.Show($"File {saveDialog.FileName} non creato - consultare il log per ulteriori dettagli", "Errore", MessageBoxButtons.OK);
+                    }
                 }
                 else
                 {
-                    // Show a message box if there was an error.
-                    MessageBox.Show($"File {saveDialog.FileName} non creato - consultare il log per ulteriori dettagli", "Errore", MessageBoxButtons.OK);
+                    MessageBox.Show($"nessun dato da esportare - veririfcare la selezione e riprovare", "Errore", MessageBoxButtons.OK);
                 }
+
             }
         }
         /**
@@ -497,6 +508,8 @@ namespace BELunchTool.Properties
                 dtTable.Columns.Add(new DataColumn("Nome Piatto", typeof(string)));
                 dtTable.Columns.Add(new DataColumn("Valore in Ticket", typeof(string)));
                 dtTable.Columns.Add(new DataColumn("Stato", typeof(string)));
+                dtTable.Columns.Add(new DataColumn("Stornato da", typeof(string)));
+                dtTable.Columns.Add(new DataColumn("Data Storno", typeof(string)));
 
                 // Populate data from list.
                 for (int i = 0; i < list.Count; i++)
@@ -516,6 +529,9 @@ namespace BELunchTool.Properties
                     dr[3] = lunch_Option.P_lunch_name;
                     dr[4] = lunch_Option.P_lunch_price;
                     dr[5] = (user_purchase_obj.P_status == 0) ? "Aperto" : "Chiuso";
+                    string username = SQL_Queries.MySQLReturnScalar($"SELECT {current_user.P_MyNameString} FROM {current_user.P_MyTable} WHERE {current_user.P_MyIdString} = {current_user.P_user_id}",current_user.P_Conn_Handler,ConnectionToGet.MySQlCommonConnection);
+                    dr[6] = username;
+                    dr[7] = user_purchase_obj.P_changed_date.ToString();
                     dtTable.Rows.Add(dr);
                 }
                 for (int i = 0; i < 100; i++)
@@ -527,6 +543,8 @@ namespace BELunchTool.Properties
                     dr[3] = "";
                     dr[4] = "";
                     dr[5] = "";
+                    dr[6] = "";
+                    dr[7] = "";
                     dtTable.Rows.Add(dr);
                 }
 
@@ -564,6 +582,8 @@ namespace BELunchTool.Properties
                     {
                         if (purchase.P_status == 0) ///< @brief Check if the purchase is open.
                         {
+                            purchase.P_changed_date = DateTime.Now;
+                            purchase.P_status_changed_by = current_user.P_user_id;
                             purchase.P_status = 1; ///< @brief Mark the purchase as paid.
                             SQL_Queries.UpdateOrWriteSingleLine(purchase, current_user, false); ///< @brief Update or write a single line to the database.
                             counter++; ///< @brief Increment the counter.

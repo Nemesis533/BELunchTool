@@ -258,7 +258,7 @@
             // 
             // clear_basket
             // 
-            clear_basket.BackgroundImage = Properties.Resources.GreenButton_v2;
+            clear_basket.BackgroundImage = Properties.Resources.GreyButton_v2;
             clear_basket.BackgroundImageLayout = ImageLayout.Zoom;
             clear_basket.FlatAppearance.BorderSize = 0;
             clear_basket.FlatStyle = FlatStyle.Flat;
@@ -272,7 +272,7 @@
             // 
             // clear_history
             // 
-            clear_history.BackgroundImage = Properties.Resources.GreenButton_v2;
+            clear_history.BackgroundImage = Properties.Resources.GreyButton_v2;
             clear_history.BackgroundImageLayout = ImageLayout.Zoom;
             clear_history.FlatAppearance.BorderSize = 0;
             clear_history.FlatStyle = FlatStyle.Flat;
