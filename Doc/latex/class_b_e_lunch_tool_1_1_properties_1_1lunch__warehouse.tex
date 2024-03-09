@@ -1,0 +1,131 @@
+\doxysection{BELunch\+Tool.\+Properties.\+lunch\+\_\+warehouse Class Reference}
+\hypertarget{class_b_e_lunch_tool_1_1_properties_1_1lunch__warehouse}{}\label{class_b_e_lunch_tool_1_1_properties_1_1lunch__warehouse}\index{BELunchTool.Properties.lunch\_warehouse@{BELunchTool.Properties.lunch\_warehouse}}
+Inheritance diagram for BELunch\+Tool.\+Properties.\+lunch\+\_\+warehouse\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_b_e_lunch_tool_1_1_properties_1_1lunch__warehouse}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_b_e_lunch_tool_1_1_properties_1_1lunch__warehouse_a436d1f3ba5cc64697ae1953db92aec52}{lunch\+\_\+warehouse}} ()
+\begin{DoxyCompactList}\small\item\em This is the constructor of the lunch\+\_\+warehouse class. It initializes the components, sets the event handlers for the Drop\+Down events of user\+\_\+name, lunch\+\_\+name, and lunch\+\_\+type\+\_\+desc, initializes the lunch lists, populates the lunch view list, and sets the values of start\+\_\+date and end\+\_\+date. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_b_e_lunch_tool_1_1_properties_1_1lunch__warehouse_a219b7765f5be9bcb9d1ca2aab825649c}{List\+To\+Excel}} (List$<$ \mbox{\hyperlink{class_b_e_lunch_tool_1_1_classes_1_1user__purchase__obj}{user\+\_\+purchase\+\_\+obj}} $>$ list, string file\+Path)
+\begin{DoxyCompactList}\small\item\em This method converts a list to an Excel file and saves the file. It creates a Data\+Table, populates the Data\+Table from the list, creates a Data\+Set, adds the Data\+Table to the Data\+Set, and saves the Data\+Set as an Excel file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+User\+\_\+\+Object \mbox{\hyperlink{class_b_e_lunch_tool_1_1_properties_1_1lunch__warehouse_a3e0c6041db9abcc15e47ceb93591fed2}{current\+\_\+user}} = new User\+\_\+\+Object()
+\begin{DoxyCompactList}\small\item\em current\+\_\+user is an instance of the User\+\_\+\+Object class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_b_e_lunch_tool_1_1_properties_1_1lunch__warehouse_a334a6248779426c7c08749aa6f00671d}{Dispose}} (bool disposing)
+\begin{DoxyCompactList}\small\item\em Clean up any resources being used. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_b_e_lunch_tool_1_1_properties_1_1lunch__warehouse_a436d1f3ba5cc64697ae1953db92aec52}\label{class_b_e_lunch_tool_1_1_properties_1_1lunch__warehouse_a436d1f3ba5cc64697ae1953db92aec52} 
+\index{BELunchTool.Properties.lunch\_warehouse@{BELunchTool.Properties.lunch\_warehouse}!lunch\_warehouse@{lunch\_warehouse}}
+\index{lunch\_warehouse@{lunch\_warehouse}!BELunchTool.Properties.lunch\_warehouse@{BELunchTool.Properties.lunch\_warehouse}}
+\doxysubsubsection{\texorpdfstring{lunch\_warehouse()}{lunch\_warehouse()}}
+{\footnotesize\ttfamily BELunch\+Tool.\+Properties.\+lunch\+\_\+warehouse.\+lunch\+\_\+warehouse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This is the constructor of the lunch\+\_\+warehouse class. It initializes the components, sets the event handlers for the Drop\+Down events of user\+\_\+name, lunch\+\_\+name, and lunch\+\_\+type\+\_\+desc, initializes the lunch lists, populates the lunch view list, and sets the values of start\+\_\+date and end\+\_\+date. 
+
+\texorpdfstring{$<$}{<}Initialize the components.
+
+\texorpdfstring{$<$}{<}Set the event handler for the Drop\+Down event of user\+\_\+name.
+
+\texorpdfstring{$<$}{<}Set the event handler for the Drop\+Down event of lunch\+\_\+name.
+
+\texorpdfstring{$<$}{<}Set the event handler for the Drop\+Down event of lunch\+\_\+type\+\_\+desc.
+
+\texorpdfstring{$<$}{<}Initialize the lunch lists.
+
+\texorpdfstring{$<$}{<}Populate the lunch view list.
+
+\texorpdfstring{$<$}{<}Set the value of start\+\_\+date to 30 days before today.
+
+\texorpdfstring{$<$}{<}Set the value of end\+\_\+date to today.
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_b_e_lunch_tool_1_1_properties_1_1lunch__warehouse_a334a6248779426c7c08749aa6f00671d}\label{class_b_e_lunch_tool_1_1_properties_1_1lunch__warehouse_a334a6248779426c7c08749aa6f00671d} 
+\index{BELunchTool.Properties.lunch\_warehouse@{BELunchTool.Properties.lunch\_warehouse}!Dispose@{Dispose}}
+\index{Dispose@{Dispose}!BELunchTool.Properties.lunch\_warehouse@{BELunchTool.Properties.lunch\_warehouse}}
+\doxysubsubsection{\texorpdfstring{Dispose()}{Dispose()}}
+{\footnotesize\ttfamily override void BELunch\+Tool.\+Properties.\+lunch\+\_\+warehouse.\+Dispose (\begin{DoxyParamCaption}\item[{bool}]{disposing }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Clean up any resources being used. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em disposing} & true if managed resources should be disposed; otherwise, false.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_b_e_lunch_tool_1_1_properties_1_1lunch__warehouse_a219b7765f5be9bcb9d1ca2aab825649c}\label{class_b_e_lunch_tool_1_1_properties_1_1lunch__warehouse_a219b7765f5be9bcb9d1ca2aab825649c} 
+\index{BELunchTool.Properties.lunch\_warehouse@{BELunchTool.Properties.lunch\_warehouse}!ListToExcel@{ListToExcel}}
+\index{ListToExcel@{ListToExcel}!BELunchTool.Properties.lunch\_warehouse@{BELunchTool.Properties.lunch\_warehouse}}
+\doxysubsubsection{\texorpdfstring{ListToExcel()}{ListToExcel()}}
+{\footnotesize\ttfamily bool BELunch\+Tool.\+Properties.\+lunch\+\_\+warehouse.\+List\+To\+Excel (\begin{DoxyParamCaption}\item[{List$<$ \mbox{\hyperlink{class_b_e_lunch_tool_1_1_classes_1_1user__purchase__obj}{user\+\_\+purchase\+\_\+obj}} $>$}]{list,  }\item[{string}]{file\+Path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This method converts a list to an Excel file and saves the file. It creates a Data\+Table, populates the Data\+Table from the list, creates a Data\+Set, adds the Data\+Table to the Data\+Set, and saves the Data\+Set as an Excel file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & The list to be converted to an Excel file. \\
+\hline
+{\em file\+Path} & The path where to save the Excel file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the operation is successful, false otherwise. 
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<}dt\+Table is a Data\+Table.
+
+\texorpdfstring{$<$}{<}user\+\_\+purchase\+\_\+obj is an instance of the user\+\_\+purchase\+\_\+obj class.
+
+\texorpdfstring{$<$}{<}user is an instance of the User\+\_\+\+Object class.
+
+\texorpdfstring{$<$}{<}lunch\+\_\+\+Option is an instance of the lunch\+\_\+option class.
+
+\texorpdfstring{$<$}{<}Set the user\+\_\+id of user.
+
+\texorpdfstring{$<$}{<}Set the lunch\+\_\+id of lunch\+\_\+\+Option.
+
+\texorpdfstring{$<$}{<}Populate the properties of lunch\+\_\+\+Option.
+
+\texorpdfstring{$<$}{<}Populate the properties of user.
+
+\texorpdfstring{$<$}{<}ds is a Data\+Set.
+
+\texorpdfstring{$<$}{<}Add dt\+Table to the ds.
+
+\texorpdfstring{$<$}{<}Catch any Error\+Handler exceptions.
+
+\texorpdfstring{$<$}{<}Write the error log.
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_b_e_lunch_tool_1_1_properties_1_1lunch__warehouse_a3e0c6041db9abcc15e47ceb93591fed2}\label{class_b_e_lunch_tool_1_1_properties_1_1lunch__warehouse_a3e0c6041db9abcc15e47ceb93591fed2} 
+\index{BELunchTool.Properties.lunch\_warehouse@{BELunchTool.Properties.lunch\_warehouse}!current\_user@{current\_user}}
+\index{current\_user@{current\_user}!BELunchTool.Properties.lunch\_warehouse@{BELunchTool.Properties.lunch\_warehouse}}
+\doxysubsubsection{\texorpdfstring{current\_user}{current\_user}}
+{\footnotesize\ttfamily User\+\_\+\+Object BELunch\+Tool.\+Properties.\+lunch\+\_\+warehouse.\+current\+\_\+user = new User\+\_\+\+Object()}
+
+
+
+current\+\_\+user is an instance of the User\+\_\+\+Object class. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Documents/\+Git\+Repos/\+BELunch\+Tool/\+Properties/\mbox{\hyperlink{lunch__warehouse_8cs}{lunch\+\_\+warehouse.\+cs}}\item 
+D\+:/\+Documents/\+Git\+Repos/\+BELunch\+Tool/\+Properties/\mbox{\hyperlink{lunch__warehouse_8_designer_8cs}{lunch\+\_\+warehouse.\+Designer.\+cs}}\end{DoxyCompactItemize}
